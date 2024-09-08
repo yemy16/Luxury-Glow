@@ -15,10 +15,11 @@ class Migration(migrations.Migration):
             name='Luxury Glow',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('mood', models.CharField(max_length=255)),
-                ('time', models.DateField(auto_now_add=True)),
-                ('feelings', models.TextField()),
-                ('mood_intensity', models.IntegerField()),
+                ('name', models.CharField(max_length=255)),
+                ('description', models.TextField()),
+                ('image', models.ImageField()),
+                ('shade_name', models.CharField(max_length=100)),
+                ('stock_quantity', models.IntegerField(default=0))
             ],
         ),
     ]
