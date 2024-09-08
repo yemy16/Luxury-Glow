@@ -1,25 +1,41 @@
 <head>
     <style>
-        /* CSS untuk judul */
+        /* CSS untuk judul utama */
+        h1 {
+            text-align: center; /* Memusatkan judul utama */
+            color: rgb(25, 112, 162); /* Warna biru laut dalam format RGB */
+            font-size: 36px; /* Ukuran font untuk judul utama */
+            margin-bottom: 40px; /* Jarak bawah untuk judul utama */
+        }
+
+        /* CSS untuk judul dengan pink agak tua */
         .title {
-            color: rgb(176, 93, 107); /* Warna untuk judul */
+            color: rgb(170, 73, 123); /* Pink tua dalam format RGB */
+            text-align: center; /* Memusatkan judul */
+            font-size: 24px; /* Ukuran font untuk judul App, Name, Class */
+            font-weight: bold; /* Membuat judul menjadi bold */
+            margin-top: 20px; /* Jarak atas untuk judul */
+            margin-bottom: 10px; /* Jarak bawah untuk judul */
         }
 
         /* CSS untuk isian */
         .content {
-            color: rgb(159, 66, 159); /* Warna untuk isian */
+            color: rgb(161, 60, 161); /* Ungu dalam format RGB */
+            text-align: center; /* Memusatkan isian */
+            font-size: 20px; /* Ukuran font untuk isian */
+            margin-bottom: 20px; /* Jarak bawah untuk isian */
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; color: #0077BE;">~  Discover Your Radiant Beauty at Luxury Glow  ~</h1>
+    <h1>Discover Your Radiant Beauty at Luxury Glow</h1>
 
-    <h5 class="title">App : </h5>
+    <h5 class="title">App: </h5>
     <p class="content">{{ app }}</p>
 
-    <h5 class="title">Name : </h5>
+    <h5 class="title">Name: </h5>
     <p class="content">{{ name }}</p>
 
-    <h5 class="title">NPM : </h5>
+    <h5 class="title">NPM: </h5>
     <p class="content">{{ npm }}</p>
 </body>
