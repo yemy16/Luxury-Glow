@@ -5,6 +5,9 @@
             background-color: rgb(255, 253, 208); /* Warna cream dalam format RGB */
             margin: 0; /* Menghapus margin default */
             padding: 0; /* Menghapus padding default */
+            display: flex; /* Menggunakan flexbox untuk tata letak */
+            flex-direction: column; /* Mengatur tata letak menjadi kolom */
+            align-items: center; /* Memusatkan elemen secara horizontal */
         }
 
         /* CSS untuk judul utama */
@@ -13,16 +16,24 @@
             color: rgb(25, 112, 162); /* Warna biru laut dalam format RGB */
             font-size: 36px; /* Ukuran font untuk judul utama */
             margin-bottom: 90px; /* Jarak bawah untuk judul utama */
+            width: 100%; /* Memastikan judul utama mengambil satu baris penuh */
         }
 
-        /* CSS untuk judul dengan pink agak tua */
+        /* CSS untuk wadah informasi */
+        .info-container {
+            display: flex; /* Menggunakan flexbox untuk menata judul dan isiannya */
+            justify-content: space-around; /* Memberikan jarak antar elemen */
+            width: 80%; /* Mengatur lebar wadah */
+            margin-bottom: 50px; /* Jarak bawah untuk wadah */
+        }
+
+        /* CSS untuk judul dengan pink tua */
         .title {
             color: rgb(170, 73, 123); /* Pink tua dalam format RGB */
             text-align: center; /* Memusatkan judul */
             font-size: 24px; /* Ukuran font untuk judul App, Name, Class */
             font-weight: bold; /* Membuat judul menjadi bold */
-            margin-top: 20px; /* Jarak atas untuk judul */
-            margin-bottom: 5px; /* Jarak bawah untuk judul */
+            margin: 0; /* Menghapus margin default */
         }
 
         /* CSS untuk isian */
@@ -30,19 +41,25 @@
             color: rgb(161, 60, 161); /* Ungu dalam format RGB */
             text-align: center; /* Memusatkan isian */
             font-size: 20px; /* Ukuran font untuk isian */
-            margin-bottom: 50px; /* Jarak bawah untuk isian */
+            margin: 0; /* Menghapus margin default */
         }
     </style>
 </head>
 <body>
     <h1>~  Discover Your Radiant Beauty at Luxury Glow  ~</h1>
 
-    <h5 class="title">App: </h5>
-    <p class="content">{{ app }}</p>
-
-    <h5 class="title">Name: </h5>
-    <p class="content">{{ name }}</p>
-
-    <h5 class="title">NPM: </h5>
-    <p class="content">{{ npm }}</p>
+    <div class="info-container">
+        <div>
+            <h5 class="title">App:</h5>
+            <p class="content">{{ app }}</p>
+        </div>
+        <div>
+            <h5 class="title">Name:</h5>
+            <p class="content">{{ name }}</p>
+        </div>
+        <div>
+            <h5 class="title">NPM:</h5>
+            <p class="content">{{ npm }}</p>
+        </div>
+    </div>
 </body>
