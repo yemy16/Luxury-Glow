@@ -8,8 +8,7 @@
             display: flex; /* Menggunakan flexbox untuk tata letak */
             flex-direction: column; /* Mengatur tata letak menjadi kolom */
             align-items: center; /* Memusatkan elemen secara horizontal */
-            height: 100vh; /* Mengatur tinggi body menjadi 100% dari viewport */
-            position: relative; /* Mengatur posisi relatif untuk menempatkan elemen absolut di dalamnya */
+            height: 100vh; /* Mengatur tinggi penuh halaman */
         }
 
         /* CSS untuk judul utama */
@@ -19,8 +18,6 @@
             font-size: 36px; /* Ukuran font untuk judul utama */
             margin: 20px 0; /* Jarak atas dan bawah untuk judul utama */
             width: 100%; /* Memastikan judul utama mengambil satu baris penuh */
-            position: absolute; /* Menggunakan posisi absolut untuk memisahkan dari tata letak flex */
-            top: 20px; /* Mengatur jarak dari atas */
         }
 
         /* CSS untuk wadah informasi */
@@ -28,9 +25,8 @@
             display: flex; /* Menggunakan flexbox untuk menata judul dan isiannya */
             justify-content: space-around; /* Memberikan jarak antar elemen */
             width: 80%; /* Mengatur lebar wadah */
-            margin-top: 80px; /* Jarak atas untuk memisahkan dari judul utama */
-            margin-bottom: 50px; /* Jarak bawah untuk wadah */
-            align-self: center; /* Memastikan wadah tetap terpusat */
+            flex-grow: 1; /* Membuat kontainer tumbuh untuk menempati ruang kosong */
+            align-items: center; /* Memusatkan elemen secara vertikal */
         }
 
         /* CSS untuk judul dengan pink tua */
@@ -54,7 +50,7 @@
     </style>
 </head>
 <body>
-    <h1>~  Discover Your Radiant Beauty at Luxury Glow  ~</h1>
+    <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
 
     <div class="info-container">
         <div>
