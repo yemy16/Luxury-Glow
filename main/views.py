@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def show_main(request):
     context = {
-        'npm' : '2306245825',
+        'app name' : 'Luxury Glow',
         'name': 'Yemima Clara Nainggolan',
         'class': 'PBP B'
     }
