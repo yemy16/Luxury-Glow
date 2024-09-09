@@ -9,4 +9,5 @@ Kelas  : PBP B
 2) Lalu, tidak lupa untuk membuat dan mengaktifkan virtual environment.
 3) Menyiapkan dependencies pada requirements.txt dan saya menambahkan dependencies pillow untuk manipulasi gambar.
 4) Menginstall dependencies tersebut serta membuat proyek django
-5) Menambahkan string berikut pada ALLOWED_HOSTS di settings.py untuk keperluan deployment
+5) Menambahkan string pada ALLOWED_HOSTS di settings.py untuk deployment
+  ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
