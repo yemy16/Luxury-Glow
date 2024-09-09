@@ -13,5 +13,5 @@ Kelas  : PBP B
    django-admin startproject Luxury_Glow .
 5) Menambahkan string pada ALLOWED_HOSTS di settings.py untuk deployment
   ```python
-  ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
