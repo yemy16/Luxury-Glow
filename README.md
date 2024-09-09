@@ -4,5 +4,4 @@ NPM    : 2306245825
 
 Kelas  : PBP B  
 
-Jawab Pertanyaan : 
-
+Cara Implementasi Checklist secara step by step : 
