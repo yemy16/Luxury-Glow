@@ -5,11 +5,11 @@ NPM    : 2306245825
 Kelas  : PBP B  
 
 # 1. Cara Implementasi Checklist secara step by step : 
-1) Membuat repositori baru di GitHub dengan nama Luxury-Glow dan membuat berkas README dalam direktori lokal proyek.
-2) Menghubungkan repositori lokal dengan repositori di github. 
-3) Melakukan cloning repositori ke komputer lokal dengan url clone eccomerce.
-4) Membuat dan mengaktifkan virtual environment pada command prompt.
-5) Membuat berkas requirements.txt dan menambahkan beberapa dependencies, seperti berikut : 
+1. Membuat repositori baru di GitHub dengan nama Luxury-Glow dan membuat berkas README dalam direktori lokal proyek.
+2. Menghubungkan repositori lokal dengan repositori di github. 
+3. Melakukan cloning repositori ke komputer lokal dengan url clone eccomerce.
+4. Membuat dan mengaktifkan virtual environment pada command prompt.
+5. Membuat berkas requirements.txt dan menambahkan beberapa dependencies, seperti berikut : 
     django
     gunicorn
     whitenoise
@@ -17,13 +17,13 @@ Kelas  : PBP B
     requests
     urllib3
     Pillow
-6) Melakukan instalasi terhadap dependencies dan membuat proyek django bernama Luxury_Glow.
-7) Mengkonfigurasi proyek dan menjalankan server dengan menambahkan string pada ALLOWED HOSTS di settings.py untuk keperluan deployment, seperti berikut : 
+6. Melakukan instalasi terhadap dependencies dan membuat proyek django bernama Luxury_Glow.
+7. Mengkonfigurasi proyek dan menjalankan server dengan menambahkan string pada ALLOWED HOSTS di settings.py untuk keperluan deployment, seperti berikut : 
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-8) Menambahkan berkas .gitignore untuk menentukan berkas dan direktori yang harus diabaikan oleh Git.
-9) Membuat aplikasi main dalam proyek Luxury-Glow dan mendaftarkan aplikasi main ke dalam proyek. 
-10) Mencoba membuka berkas HTML di peramban web.
-11) Menambahkan atribut atribut yang diperlukan pada eccomerce Luxury Glow pada berkas models.py, seperti berikut :  
+8. Menambahkan berkas .gitignore untuk menentukan berkas dan direktori yang harus diabaikan oleh Git.
+9. Membuat aplikasi main dalam proyek Luxury-Glow dan mendaftarkan aplikasi main ke dalam proyek. 
+10. Mencoba membuka berkas HTML di peramban web.
+11. Menambahkan atribut atribut yang diperlukan pada eccomerce Luxury Glow pada berkas models.py, seperti berikut :  
     from django.db import models
 
 class LuxuryGlow(models.Model):
@@ -35,14 +35,14 @@ class LuxuryGlow(models.Model):
     stock_quantity = models.IntegerField(default=0)
     def __str__(self):
         return self.name
-12) Membuat migrasi model dengan perintah "python manage.py makemigrations" dan menerapkan migrasi ke dalam basis data lokal dengan perintah : python manage.py migrate
-13) Mengintegrasikan komponen MVT dengan menambahkan baris import di paling atas berkas views.py dengan menambahkan berkas dan menambahkan fungsi show_main di bawah impor.
-14) Memodifikasi template main.html dan mengisi dengan atribut yang diperlukan pada eccomerce dan menyesuaikan peletakkan judul dan isiannya serta melakukan setting di warna tulisan dan backgroundnya.
-15) Mengonfigurasi routing url pada aplikasi main pada berkas urls.py di dalam direktori main
-16) Mengonfigurasi routing url proyek untuk menghubungkan ke tampilan main dengan mengimpor fungsi include pada berkas urls.py yang bukan di direktori aplikasi main.
-17) Menjalankan django dengan perintah "python manage.py runserver" dan membukanya pada peramban web.
-18) Melakukan deployment dengan menambahkan URL deployment PWS pada ALLOWED HOSTS dengan username sso dan nama proyek.
-19) Melakukan push dengan perintah "git push pws master" dan menununggu status running hingga successful, kemudian project yang sudah dibuat sudah dapat diakses.
+12. Membuat migrasi model dengan perintah "python manage.py makemigrations" dan menerapkan migrasi ke dalam basis data lokal dengan perintah : python manage.py migrate
+13. Mengintegrasikan komponen MVT dengan menambahkan baris import di paling atas berkas views.py dengan menambahkan berkas dan menambahkan fungsi show_main di bawah impor.
+14. Memodifikasi template main.html dan mengisi dengan atribut yang diperlukan pada eccomerce dan menyesuaikan peletakkan judul dan isiannya serta melakukan setting di warna tulisan dan backgroundnya.
+15. Mengonfigurasi routing url pada aplikasi main pada berkas urls.py di dalam direktori main
+16. Mengonfigurasi routing url proyek untuk menghubungkan ke tampilan main dengan mengimpor fungsi include pada berkas urls.py yang bukan di direktori aplikasi main.
+17. Menjalankan django dengan perintah "python manage.py runserver" dan membukanya pada peramban web.
+18. Melakukan deployment dengan menambahkan URL deployment PWS pada ALLOWED HOSTS dengan username sso dan nama proyek.
+19. Melakukan push dengan perintah "git push pws master" dan menununggu status running hingga successful, kemudian project yang sudah dibuat sudah dapat diakses.
 
 # 2. Bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan penjelasan kaitan antara urls.py, views.py, models.py, dan berkas html.
 ![alt text](<Bagan PBP-1.jpeg>)
