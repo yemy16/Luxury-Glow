@@ -15,10 +15,10 @@ Kelas  : PBP B
   ```python
      ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 6) Menjalankan server django dengan perintah : 
-   ```python
+   ```
   python manage.py runserver
 7) Membuat aplikasi dengan nama main :
-   ```python
+   ```
   python manage.py startapp main
 
 
