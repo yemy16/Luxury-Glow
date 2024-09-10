@@ -23,18 +23,7 @@ Kelas  : PBP B
 8. Menambahkan berkas .gitignore untuk menentukan berkas dan direktori yang harus diabaikan oleh Git.
 9. Membuat aplikasi main dalam proyek Luxury-Glow dan mendaftarkan aplikasi main ke dalam proyek. 
 10. Mencoba membuka berkas HTML di peramban web.
-11. Menambahkan atribut atribut yang diperlukan pada eccomerce Luxury Glow pada berkas models.py, seperti berikut :  
-    from django.db import models
-
-class LuxuryGlow(models.Model):
-    name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=20, decimal_places=2)
-    description = models.TextField()
-    image = models.ImageField()
-    shade_name = models.CharField(max_length=100)
-    stock_quantity = models.IntegerField(default=0)
-    def __str__(self):
-        return self.name
+11. Menambahkan atribut atribut yang diperlukan pada eccomerce Luxury Glow pada berkas models.py, yaitu :  name, price, description, image, shade_name, dan stock quantity.
 12. Membuat migrasi model dengan perintah "python manage.py makemigrations" dan menerapkan migrasi ke dalam basis data lokal dengan perintah : python manage.py migrate
 13. Mengintegrasikan komponen MVT dengan menambahkan baris import di paling atas berkas views.py dengan menambahkan berkas dan menambahkan fungsi show_main di bawah impor.
 14. Memodifikasi template main.html dan mengisi dengan atribut yang diperlukan pada eccomerce dan menyesuaikan peletakkan judul dan isiannya serta melakukan setting di warna tulisan dan backgroundnya.
