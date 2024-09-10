@@ -34,7 +34,7 @@ Kelas  : PBP B
 19. Melakukan push dengan perintah "git push pws master" dan menununggu status running hingga successful, kemudian project yang sudah dibuat sudah dapat diakses.
 
 # 2. Bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan penjelasan kaitan antara urls.py, views.py, models.py, dan berkas html.
-![alt text](<Bagan PBP-1.jpeg>)
+![alt text](<Bagan PBP-2.jpeg>)
 
 # 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
 Beberapa fungsi utama Git dalam pengembangan perangkat lunak :
