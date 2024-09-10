@@ -14,4 +14,11 @@ Kelas  : PBP B
 5) Menambahkan string pada ALLOWED_HOSTS di settings.py untuk deployment
   ```python
      ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+6) Menjalankan server django dengan perintah : 
+   ```python
+      python manage.py runserver
+7) Membuat aplikasi dengan nama main :
+   ```python
+      python manage.py startapp main
+
 
