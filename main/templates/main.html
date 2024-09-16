@@ -47,42 +47,67 @@
             margin: 0; /* Menghapus margin default */
             margin-bottom: 20px; /* Jarak bawah untuk memberikan ruang antara isian dan elemen berikutnya */
         }
+
+        /* CSS untuk peringatan */
+        .warning {
+            font-size: 16px; /* Ukuran font lebih besar dari sebelumnya */
+            font-weight: normal; /* Tidak menggunakan bold */
+            text-align: center;
+            margin-bottom: 15px; /* Memberikan jarak bawah antara peringatan dan elemen berikutnya */
+        }
+
+        /* CSS untuk tombol */
+        button {
+            background-color: rgb(37, 162, 83); /* Warna merah untuk tombol */
+            color: white; /* Warna teks pada tombol */
+            padding: 10px 20px; /* Mengatur padding untuk tombol */
+            border: none; /* Menghilangkan border */
+            border-radius: 5px; /* Membuat sudut tombol melengkung */
+            cursor: pointer; /* Mengubah kursor menjadi pointer saat di-hover */
+            font-size: 16px; /* Ukuran font pada tombol */
+        }
+
+        button:hover {
+            background-color: rgb(37, 125, 85); /* Mengubah warna tombol saat di-hover */
+        }
     </style>
 </head>
 <body>
     <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
 
     {% if not product_entries %}
-<p>Belum ada data product pada Luxury Glow.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Shade Name</th>
-    <th>Stock Quantity</th>
-  </tr>
+    <div class="warning">
+        <p> !! Belum ada data product pada Luxury Glow !! </p>
+    </div>
+    {% else %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Shade Name</th>
+            <th>Stock Quantity</th>
+        </tr>
 
-  {% comment %} Menampilkan data skincare makeup di bawah baris ini 
-  {% endcomment %} 
-  {% for product_entry in product_entries %}
-  <tr>
-    <td>{{ product_entry.name }}</td>
-    <td>{{ product_entry.price }}</td>
-    <td>{{ product_entry.description }}</td>
-    <td>{{ product_entry.shade_name }}</td>
-    <td>{{ product_entry.stock_quantity }}</td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
+        {% comment %} Menampilkan data skincare makeup di bawah baris ini 
+        {% endcomment %} 
+        {% for product_entry in product_entries %}
+        <tr>
+            <td>{{ product_entry.name }}</td>
+            <td>{{ product_entry.price }}</td>
+            <td>{{ product_entry.description }}</td>
+            <td>{{ product_entry.shade_name }}</td>
+            <td>{{ product_entry.stock_quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 
-<br />
+    <br />
 
-<a href="{% url 'main:create_product_entry' %}">
-  <button>Add New Skincare or Makeup</button>
-</a>
+    <a href="{% url 'main:create_product_entry' %}">
+        <button>Add New Skincare or Makeup</button>
+    </a>
 
     <div class="info-container">
         <div>
