@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import SkincareMakeupEntry
+from .models import Product
 
-class SkincareMakeupEntryForm(ModelForm):
+class ProductForm(ModelForm):
     class Meta:
-        model = SkincareMakeupEntry
+        model = Product
         fields = ["name", "price", "description","shade_name","stock_quantity"]

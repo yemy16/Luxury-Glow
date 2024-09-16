@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, skincare_makeup_entry
+from main.views import show_main, create_product_entry
 
 app_name = 'main'
 
