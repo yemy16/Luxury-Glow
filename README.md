@@ -1,4 +1,4 @@
-PWS : https://yemima-clara31-luxuryglow.pbp.cs.ui.ac.id/ 
+PWS : http://yemima-clara31-luxuryglow.pbp.cs.ui.ac.id
 
 # 1. Cara Implementasi Checklist secara step by step : 
 1. Membuat repositori baru di GitHub dengan nama Luxury-Glow dan membuat berkas README dalam direktori lokal proyek.
