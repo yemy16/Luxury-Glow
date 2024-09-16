@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from main.forms import SkincareMakeupEntryForm
+from main.models import SkincareMakeupEntry
 
 def show_main(request):
     context = {
@@ -8,3 +10,13 @@ def show_main(request):
     }
 
     return render(request, "main.html", context)
+
+def skincare_makeup_entry(request):
+    form = SkincareMakeupEntryForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return redirect('main:show_main')
+
+    context = {'form': form}
+    return render(request, "create_mood_entry.html", context)
