@@ -52,21 +52,8 @@
 <body>
     <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
 
-    {% block content %}
-    <h1>Luxury Glow</h1>
-
-    <h5>NPM:</h5>
-    <p>{{ npm }}</p>
-
-    <h5>Name:</h5>
-    <p>{{ name }}</p>
-
-    <h5>Class:</h5>
-    <p>{{ class }}</p>
-    {% endblock content %}
-
     {% if not product_entries %}
-<p>Belum ada data sproduct pada Luxury Glow.</p>
+<p>Belum ada data product pada Luxury Glow.</p>
 {% else %}
 <table>
   <tr>
@@ -94,7 +81,7 @@
 <br />
 
 <a href="{% url 'main:create_product_entry' %}">
-  <button>Add New Product Entry</button>
+  <button>Add New Skincare or Makeup</button>
 </a>
 
     <div class="info-container">
