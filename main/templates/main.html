@@ -53,7 +53,7 @@
     <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
 
     {% block content %}
-    <h1>Mental Health Tracker</h1>
+    <h1>Luxury Glow</h1>
 
     <h5>NPM:</h5>
     <p>{{ npm }}</p>
@@ -64,6 +64,37 @@
     <h5>Class:</h5>
     <p>{{ class }}</p>
     {% endblock content %}
+
+    {% if not skincare_makeup_entries %}
+<p>Belum ada data skincare makeup pada Luxury Glow.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Shade Name</th>
+    <th>Stock Quantity</th>
+  </tr>
+
+  {% comment %} Menampilkan data skincare makeup di bawah baris ini {% endcomment %} 
+  {% for skincare in skincare_makeup_entries %}
+  <tr>
+    <td>{{ skincare.name }}</td>
+    <td>{{ skincare.price }}</td>
+    <td>{{ skincare.description }}</td>
+    <td>{{ skincare.shade_name }}</td>
+    <td>{{ skincare.stock_quantity }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_mood_entry' %}">
+  <button>Add New Skincare Makeup Entry</button>
+</a>
 
     <div class="info-container">
         <div>

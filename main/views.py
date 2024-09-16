@@ -3,6 +3,7 @@ from main.forms import SkincareMakeupEntryForm
 from main.models import SkincareMakeupEntry
 
 def show_main(request):
+    skincare_makeup_entries = SkincareMakeupEntry.objects.all()
     context = {
         'app' : 'Luxury Glow',
         'name': 'Yemima Clara Nainggolan',

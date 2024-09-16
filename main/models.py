@@ -9,5 +9,6 @@ class SkincareMakeupEntry(models.Model):
     image = models.ImageField()
     shade_name = models.CharField(max_length=100)
     stock_quantity = models.IntegerField(default=0)
+    
     def __str__(self):
         return self.name
