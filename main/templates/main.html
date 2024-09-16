@@ -77,13 +77,14 @@
     <th>Stock Quantity</th>
   </tr>
 
-  {% comment %} Menampilkan data skincare makeup di bawah baris ini {% endcomment %} 
+  {% comment %} Menampilkan data skincare makeup di bawah baris ini 
+  {% endcomment %} 
   {% for product_entry in product_entries %}
   <tr>
     <td>{{ product_entry.name }}</td>
     <td>{{ product_entry.price }}</td>
     <td>{{ product_entry.description }}</td>
-    <td>{{ product.shade_name }}</td>
+    <td>{{ product_entry.shade_name }}</td>
     <td>{{ product_entry.stock_quantity }}</td>
   </tr>
   {% endfor %}
