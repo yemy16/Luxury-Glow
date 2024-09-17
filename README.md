@@ -84,3 +84,15 @@ Penyerang dapat membuat halaman web yang secara diam-diam mengirimkan permintaan
 11) Menambahkan import fungsi show_xml_by_id dan show_json_by_id dan menaambahkan path url tersebut untuk mengakses fungsi yang sudah diimpor.
 12) Melihat data lewat Postman dengan method get dilengkapi dengan url xml dan json untuk mengetes apakah data terkirimkan dengan baik serta xml by id dan json by id untuk mengetes fungsi pengambilan data Product Entry berdasarkan ID.
 13) Melakukan push ke pws secara otomatis menggunakan github actions, yaitu dengan membuat subdirektori .github dan di dalamnya diletakkan subdirektori bernama workflows. Lalu, membuat berkas deploy.yml. Selanjutnya, pada repositori di github di bagian actions pada settings mengisi nama dengan PWS_URL dan mengisi secret dengan format yang telah ditentukan. Setelah itu, menambahkan kode url pws pada settings.py dan terakhir melakukan git add, commit, dan push serta menunggu indikator kuning berubah menjadi indikator centang hijau.
+
+Hasil akses URL XML
+![alt text](image.png)
+
+Hasil akses URL JSON
+![alt text](image-1.png)
+
+Hasil akses URL XML by ID
+![alt text](image-2.png)
+
+Hasil akses URL JSON by ID
+![alt text](image-3.png)
