@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import render, redirect
-from main.forms import ProductForm
+from main.forms import ProductEntryForm
 from main.models import Product
 
 @login_required(login_url='/login')
