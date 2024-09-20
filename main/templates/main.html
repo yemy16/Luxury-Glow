@@ -109,6 +109,12 @@
         <button>Add New Skincare or Makeup</button>
     </a>
 
+    <a href="{% url 'main:logout' %}">
+        <button>Logout</button>
+      </a>
+
+      <h5>Sesi terakhir login: {{ last_login }}</h5>
+
     <div class="info-container">
         <div>
             <h5 class="title">App :</h5>
