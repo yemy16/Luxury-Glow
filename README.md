@@ -133,5 +133,4 @@ Tidak semua cookies aman digunakan, terutama jika tidak dienkripsi dengan benar.
 7) Pada fungsi login_user, menambahkan fungsionalitas dengan menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. Pada fungsi show_main menambahkan potongan kode "'last_login': request.COOKIES['last_login']" berfungsi menambahkan informasi cookie last_login pada response yang akan ditampilkan di halaman web. Setelah itu, menambahkan tombol logout untuk menampilkan data last login.
 8) Mengimpor model user pada models.py dan mengubah value dari mood_entries pada fungsi show_main menjadi "mood_entries = MoodEntry.objects.filter(user=request.user)" dan mengubah value dari name pada fungsi show_main menjadi "request.user.username"   
 9) Menambahkan import os pada berkas settings.py dan mengganti variabel DEBUG dari berkas settings.py menjadi : 
-PRODUCTION = os.getenv("PRODUCTION", False)
-DEBUG = not PRODUCTION
+PRODUCTION = os.getenv("PRODUCTION", False) dan DEBUG = not PRODUCTION
