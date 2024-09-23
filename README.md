@@ -123,6 +123,7 @@ Saat pengguna login di Django, proses authentication terjadi, dan setelah login 
 **Bagaimana Django mengingat pengguna yang telah login?**
 
 Django menggunakan session cookies untuk mengingat user yang telah login. Setelah user berhasil login, Django menciptakan sesi yang terikat dengan user tersebut, lalu menyimpan session ID pada cookie di browser. Setiap kali pengguna mengirim request baru, session ID ini dikirimkan kembali ke server, sehingga server dapat mengenali user. Contoh penerapan pada tugas 4 adalah saat session ID dikirim setiap kali user melakukan request, dan server memverifikasi session untuk memastikan pengguna tersebut sudah login​.
+
 **Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?**
 
 Cookies bisa digunakan untuk menyimpan informasi kecil di sisi klien, seperti preferensi user, data shopping cart, atau pengaturan tampilan. Selain untuk session tracking, cookies juga digunakan untuk mengingat status login, melacak user di situs yang berbeda (seperti pada iklan), atau menyimpan informasi yang bersifat sementara.
