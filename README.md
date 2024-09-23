@@ -107,6 +107,7 @@ Penyerang dapat membuat halaman web yang secara diam-diam mengirimkan permintaan
 </ul>
 
 **Jelaskan cara kerja penghubungan model Product dengan User!**
+
 Pada tugas 4 ini, ketika ingin menghubungkan model Product dengan User, menggunakan relasi ForeignKey. Dalam model Product, saya menambahkan field user yang terhubung dengan model User. Ini memungkinkan setiap produk yang ditambahkan atau diubah akan terkait dengan user yang sedang login. Dengan menambahkan ForeignKey(User, on_delete=models.CASCADE), produk ini akan berhubungan dengan User, dan setiap kali produk disimpan, field user akan menyimpan referensi ke pengguna yang membuat produk tersebut dan jika user dihapus, semua produk yang terkait juga akan dihapus. 
 
 **Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login?**
@@ -116,11 +117,14 @@ Pada tugas 4 ini, ketika ingin menghubungkan model Product dengan User, mengguna
 </ul>
 
 **Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut**
+
 Saat pengguna login di Django, proses authentication terjadi, dan setelah login berhasil, session dikelola untuk mengingat user yang telah login (authorization). Django mengimplementasikan session cookies untuk ini, di mana cookie menyimpan ID sesi pengguna yang login.
 
 **Bagaimana Django mengingat pengguna yang telah login?**
+
 Django menggunakan session cookies untuk mengingat user yang telah login. Setelah user berhasil login, Django menciptakan sesi yang terikat dengan user tersebut, lalu menyimpan session ID pada cookie di browser. Setiap kali pengguna mengirim request baru, session ID ini dikirimkan kembali ke server, sehingga server dapat mengenali user. Contoh penerapan pada tugas 4 adalah saat session ID dikirim setiap kali user melakukan request, dan server memverifikasi session untuk memastikan pengguna tersebut sudah login​.
 **Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?**
+
 Cookies bisa digunakan untuk menyimpan informasi kecil di sisi klien, seperti preferensi user, data shopping cart, atau pengaturan tampilan. Selain untuk session tracking, cookies juga digunakan untuk mengingat status login, melacak user di situs yang berbeda (seperti pada iklan), atau menyimpan informasi yang bersifat sementara.
 Tidak semua cookies aman digunakan, terutama jika tidak dienkripsi dengan benar. Cookies dapat disalahgunakan untuk serangan cross-site scripting (XSS) atau session hijacking jika tidak dikelola dengan baik. Oleh karena itu, penting untuk menggunakan cookie secure dan httpOnly agar hanya dapat diakses oleh server.
 
