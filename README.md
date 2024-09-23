@@ -107,6 +107,7 @@ Penyerang dapat membuat halaman web yang secara diam-diam mengirimkan permintaan
 </ul>
 
 **Jelaskan cara kerja penghubungan model Product dengan User!**
+
 Pada tugas 4 ini, ketika ingin menghubungkan model Product dengan User, menggunakan relasi ForeignKey. Dalam model Product, saya menambahkan field user yang terhubung dengan model User. Ini memungkinkan setiap produk yang ditambahkan atau diubah akan terkait dengan user yang sedang login. Dengan menambahkan ForeignKey(User, on_delete=models.CASCADE), produk ini akan berhubungan dengan User, dan setiap kali produk disimpan, field user akan menyimpan referensi ke pengguna yang membuat produk tersebut dan jika user dihapus, semua produk yang terkait juga akan dihapus. 
 
 **Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login?**
@@ -114,7 +115,7 @@ Pada tugas 4 ini, ketika ingin menghubungkan model Product dengan User, mengguna
 <li> Authentication adalah proses memeriksa identitas user, memastikan bahwa user adalah orang yang diklaim melakukan login dengan username dan password. Saat pengguna login di Django, sistem memverifikasi kredensialnya dan memulai sesi user. </li>
 <li> Authorization adalah proses untuk memberikan izin kepada user setelah mereka berhasil diotentikasi. Ini menentukan hak akses user terhadap fitur atau halaman tertentu di aplikasi.</li>
 </ul>
-**Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.**
+**Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut**
 Saat pengguna login di Django, proses authentication terjadi, dan setelah login berhasil, session dikelola untuk mengingat user yang telah login (authorization). Django mengimplementasikan session cookies untuk ini, di mana cookie menyimpan ID sesi pengguna yang login.
 
 **Bagaimana Django mengingat pengguna yang telah login?**
