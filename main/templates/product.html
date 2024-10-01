@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<head>
+    <style>
+        body {
+            background-color: rgb(255, 253, 208);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgb(170, 73, 123);
+            color: white;
+        }
+
+        td {
+            color: rgb(25, 112, 162);
+        }
+
+        button {
+            background-color: rgb(37, 162, 83);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: rgb(135, 193, 167);
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+
+    {% if not product_entries %}
+    <div class="warning">
+        <p>!! No products available in Luxury Glow !!</p>
+    </div>
+    {% else %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Shade Name</th>
+            <th>Stock Quantity</th>
+        </tr>
+
+        {% for product_entry in product_entries %}
+        <tr>
+            <td>{{ product_entry.name }}</td>
+            <td>{{ product_entry.price }}</td>
+            <td>{{ product_entry.description }}</td>
+            <td>{{ product_entry.shade_name }}</td>
+            <td>{{ product_entry.stock_quantity }}</td>
+            <td>
+                <a href="{% url 'main:edit_product' product_entry.pk %}">
+                    <button>Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'main:delete_product' product_entry.pk %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <br />
+
+    <a href="{% url 'main:create_product_entry' %}">
+        <button>Add New Skincare or Makeup</button>
+    </a>
+
+    <a href="{% url 'main:logout' %}">
+        <button>Logout</button>
+    </a>
+</body>
+{% endblock content %}

@@ -1,119 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
 <head>
     <style>
-        /* CSS untuk latar belakang */
         body {
-            background-color: rgb(255, 253, 208); /* Warna cream dalam format RGB */
-            margin: 0; /* Menghapus margin default */
-            padding: 0; /* Menghapus padding default */
-            display: flex; /* Menggunakan flexbox untuk tata letak */
-            flex-direction: column; /* Mengatur tata letak menjadi kolom */
-            align-items: center; /* Memusatkan elemen secara horizontal */
-            height: 100vh; /* Mengatur tinggi penuh halaman */
+            background-color: rgb(255, 253, 208);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* CSS untuk judul utama */
         h1 {
-            text-align: center; /* Memusatkan judul utama */
-            color: rgb(25, 112, 162); /* Warna biru laut dalam format RGB */
-            font-size: 36px; /* Ukuran font untuk judul utama */
-            margin: 20px 0; /* Jarak atas dan bawah untuk judul utama */
-            width: 100%; /* Memastikan judul utama mengambil satu baris penuh */
-        }
-
-        /* CSS untuk wadah informasi */
-        .info-container {
-            display: flex; /* Menggunakan flexbox untuk menata judul dan isiannya */
-            justify-content: space-around; /* Memberikan jarak antar elemen */
-            width: 80%; /* Mengatur lebar wadah */
-            flex-grow: 1; /* Membuat kontainer tumbuh untuk menempati ruang kosong */
-            align-items: center; /* Memusatkan elemen secara vertikal */
-        }
-
-        /* CSS untuk judul dengan pink tua */
-        .title {
-            color: rgb(170, 73, 123); /* Pink tua dalam format RGB */
-            text-align: center; /* Memusatkan judul */
-            font-size: 24px; /* Ukuran font untuk judul App, Name, Class */
-            font-weight: bold; /* Membuat judul menjadi bold */
-            margin: 0; /* Menghapus margin default */
-            margin-bottom: 10px; /* Jarak bawah untuk memberikan ruang antara judul dan isian */
-        }
-
-        /* CSS untuk isian */
-        .content {
-            color: rgb(161, 60, 161); /* Ungu dalam format RGB */
-            text-align: center; /* Memusatkan isian */
-            font-size: 20px; /* Ukuran font untuk isian */
-            margin: 0; /* Menghapus margin default */
-            margin-bottom: 20px; /* Jarak bawah untuk memberikan ruang antara isian dan elemen berikutnya */
-        }
-
-        /* CSS untuk peringatan */
-        .warning {
-            font-size: 16px; /* Ukuran font lebih besar dari sebelumnya */
-            font-weight: normal; /* Tidak menggunakan bold */
             text-align: center;
-            margin-bottom: 15px; /* Memberikan jarak bawah antara peringatan dan elemen berikutnya */
+            color: rgb(25, 112, 162);
+            font-size: 36px;
+            margin: 20px 0;
+            width: 100%;
         }
 
-        /* CSS untuk tombol */
+        .description {
+            text-align: center;
+            font-size: 20px;
+            color: rgb(161, 60, 161);
+            margin: 20px 0;
+        }
+
         button {
-            background-color: rgb(37, 162, 83); /* Warna merah untuk tombol */
-            color: white; /* Warna teks pada tombol */
-            padding: 10px 20px; /* Mengatur padding untuk tombol */
-            border: none; /* Menghilangkan border */
-            border-radius: 5px; /* Membuat sudut tombol melengkung */
-            cursor: pointer; /* Mengubah kursor menjadi pointer saat di-hover */
-            font-size: 16px; /* Ukuran font pada tombol */
+            background-color: rgb(37, 162, 83);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         button:hover {
-            background-color: rgb(37, 125, 85); /* Mengubah warna tombol saat di-hover */
+            background-color: rgb(135, 193, 167);
         }
     </style>
 </head>
 <body>
     <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
 
-    {% if not product_entries %}
-    <div class="warning">
-        <p> !! Belum ada data product pada Luxury Glow !! </p>
-    </div>
-    {% else %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Shade Name</th>
-            <th>Stock Quantity</th>
-        </tr>
+    <p class="description">
+        Welcome to Luxury Glow, your premier destination for high-quality skincare and makeup products.
+        Our mission is to help you embrace your natural beauty with our carefully curated collection of beauty products.
+        Whether you're looking for the latest trends in skincare or timeless makeup essentials, we've got you covered.
+        Join us on a journey to radiance and explore the luxury of self-care.
+    </p>
 
-        {% comment %} Menampilkan data skincare makeup di bawah baris ini 
-        {% endcomment %} 
-        {% for product_entry in product_entries %}
-        <tr>
-            <td>{{ product_entry.name }}</td>
-            <td>{{ product_entry.price }}</td>
-            <td>{{ product_entry.description }}</td>
-            <td>{{ product_entry.shade_name }}</td>
-            <td>{{ product_entry.stock_quantity }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-
-    <br />
-
-    <a href="{% url 'main:create_product_entry' %}">
-        <button>Add New Skincare or Makeup</button>
+    <a href="{% url 'main:show_products' %}">
+        <button>View Products</button>
     </a>
 
     <a href="{% url 'main:logout' %}">
         <button>Logout</button>
-      </a>
+    </a>
 
-      <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 
     <div class="info-container">
         <div>
@@ -130,3 +78,4 @@
         </div>
     </div>
 </body>
+{% endblock content %}

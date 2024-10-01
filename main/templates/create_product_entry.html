@@ -1,5 +1,6 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
+{% include 'navbar.html' %}
 <h1>Add New Product Entry</h1>
 
 <form method="POST">
@@ -15,4 +16,4 @@
   </table>
 </form>
 
-{% endblock %}
+{% endblock content %}
