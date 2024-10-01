@@ -1,32 +1,186 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Register</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="register flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-300 to-pink-200">
-    <div class="bg-white shadow-lg rounded-lg p-10 w-full max-w-md">
-        <h1 class="text-4xl font-bold text-center text-pink-600 mb-8">Create an Account</h1>
-        <form method="POST" class="space-y-6">
-            {% csrf_token %}
-            <div class="space-y-4">
-                {{ form.as_p }}
-            </div>
-            <div class="flex justify-center mt-6">
-                <input type="submit" name="submit" value="Register" class="bg-pink-600 text-white rounded-lg px-6 py-3 hover:bg-pink-500 transition duration-200 ease-in-out font-semibold w-full text-lg shadow-md" />
-            </div>
-        </form>
-        {% if messages %}
-        <ul class="mt-4 space-y-2">
-            {% for message in messages %}
-            <li class="text-pink-600 text-center">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        <div class="mt-6 text-center">
-            <p class="text-gray-600">Already have an account? <a href="{% url 'main:login' %}" class="text-pink-600 font-semibold hover:underline">Login</a></p>
+<div class="register-container">
+  <div class="register-content-wrapper">
+    <!-- Bagian Form Register -->
+    <div class="register-form-wrapper">
+      <h2 class="register-heading">Register</h2>
+      <p class="register-subtext">Create a new account to join us</p>
+
+      <form method="POST" action="">
+        {% csrf_token %}
+        <div class="register-form-group">
+          <label for="username" class="register-label">Username</label>
+          <input type="text" id="username" name="username" class="register-input" required>
+          <small class="register-help-text">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
         </div>
+
+        <div class="register-form-group">
+          <label for="password" class="register-label">Password</label>
+          <input type="password" id="password" name="password" class="register-input" required>
+          <small class="register-help-text">
+            Your password must contain at least 8 characters.<br>
+            Your password can’t be a commonly used password.<br>
+            Your password can’t be entirely numeric.
+          </small>
+        </div>
+
+        <div class="register-form-group">
+          <label for="password_confirmation" class="register-label">Password confirmation</label>
+          <input type="password" id="password_confirmation" name="password_confirmation" class="register-input" required>
+          <small class="register-help-text">Enter the same password as before, for verification.</small>
+        </div>
+
+        <button type="submit" class="register-btn register-btn-custom">Register</button>
+      </form>
+
+      <hr class="separator">
+
+      <div class="login-wrapper">
+        <p class="login-text">Already have an account?</p>
+        <a href="{% url 'main:login' %}" class="login-btn">Login</a>
+      </div>
+
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
+
+    <!-- Bagian Gambar -->
+    <div class="register-image-wrapper">
+      <img src="{% static 'images/register-image.jpg' %}" alt="Register Image" class="register-image">
+    </div>
+  </div>
 </div>
+
+<!-- CSS untuk Register -->
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7e1e1;
+  }
+
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Kontainer utama menyesuaikan tinggi layar */
+    overflow: hidden; /* Mencegah konten keluar */
+  }
+
+  .register-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Sesuaikan tinggi elemen di dalamnya */
+    width: 70%; /* Lebar keseluruhan konten */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .register-form-wrapper {
+    width: 50%;
+    padding: 20px;
+    overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+    box-sizing: border-box;
+  }
+
+  .register-image-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .register-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .register-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e91e63;
+  }
+
+  .register-subtext {
+    margin-bottom: 20px;
+    color: #777;
+  }
+
+  .register-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .register-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .register-help-text {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 15px;
+  }
+
+  .register-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e186a4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .register-btn-custom {
+    background-color: #e77fa1;
+  }
+
+  .separator {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin: 20px 0;
+  }
+
+  .login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-text {
+    margin-bottom: 10px;
+  }
+
+  .login-btn {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+  }
+</style>
+
 {% endblock content %}
