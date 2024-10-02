@@ -247,3 +247,4 @@ Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen d
 Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
+1) Menambah
