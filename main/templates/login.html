@@ -8,6 +8,10 @@
 {% block content %}
 <div class="login-container">
   <div class="login-content-wrapper">
+<<<<<<< HEAD
+=======
+    <!-- Bagian Form Login -->
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
     <div class="login-form-wrapper">
       <h2 class="login-heading">Login</h2>
       <p class="login-subtext">If you are already a member, easily log in</p>
@@ -48,12 +52,135 @@
       {% endif %}
     </div>
 
+<<<<<<< HEAD
+=======
+    <!-- Bagian Gambar -->
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
     <div class="login-image-wrapper">
       <img src="{% static 'images/1.jpg' %}" alt="Image" class="login-image">
     </div>
   </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<!-- CSS untuk Login -->
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e0a8a8;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Menyusun agar login di tengah vertikal */
+  }
+
+  .login-content-wrapper {
+    display: flex; /* Mengatur gambar dan form login dalam satu baris */
+    justify-content: space-between;
+    align-items: center;
+    width: 70%; /* Lebar keseluruhan konten */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-form-wrapper {
+    width: 50%; /* Lebar untuk form */
+    padding: 20px;
+  }
+
+  .login-image-wrapper {
+    width: 50%; /* Lebar untuk gambar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .login-image {
+    width: 100%; /* Agar gambar menyesuaikan ukuran kontainer */
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .login-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e91e63;
+  }
+
+  .login-subtext {
+    margin-bottom: 20px;
+    color: #777;
+  }
+
+  .login-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .login-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .login-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .login-btn-custom {
+    background-color: #e91e63;
+  }
+
+  .separator {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin: 20px 0;
+  }
+
+  .register-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register-text {
+    margin-bottom: 10px;
+  }
+
+  .register-btn {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
 <script>
   function togglePasswordVisibility() {
     var passwordField = document.getElementById('password');
@@ -69,4 +196,8 @@
     }
   }
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
 {% endblock content %}

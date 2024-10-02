@@ -8,6 +8,10 @@ class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
     price = models.IntegerField(default=0)
+<<<<<<< HEAD
+=======
+    price = models.IntegerField(default=0) 
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
     description = models.TextField()
     shade_name = models.CharField(max_length=100)
     stock_quantity = models.IntegerField(default=0)

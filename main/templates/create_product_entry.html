@@ -22,7 +22,11 @@
 
       <div class="form-group">
           <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+<<<<<<< HEAD
           <input type="text" name="price" id="{{ form.price.id_for_label }}" value="Rp 0" placeholder="Rp 0" required />
+=======
+          <input type="text" name="price" id="{{ form.price.id_for_label }}" placeholder="Rp 0" required />
+>>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
           {% if form.price.errors %}
               <ul class="errorlist">
                   {% for error in form.price.errors %}
