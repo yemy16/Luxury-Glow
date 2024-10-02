@@ -186,6 +186,7 @@ element {
     margin-right: 22px; /* Margin kanan */
     margin-left: 23px;  /* Margin kiri */
 }
+```
 
 Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
 
@@ -196,6 +197,7 @@ element {
     border: 4px solid black; /* Border hitam dengan ketebalan 4px */
     border-width: 6px; /* Lebar border 6px */
 }
+```
 
 Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
 
@@ -207,6 +209,7 @@ element {
     padding-right: 16px; /* Padding kanan */
     padding-left: 16px; /* Padding kiri */
 }
+```
 
 Contoh implementasi gabungan margin, border, dan padding : 
 ```css
@@ -216,6 +219,7 @@ Contoh implementasi gabungan margin, border, dan padding :
     border: 10px solid red; /* Border merah 10px di sekitar elemen */
     padding: 40px;        /* Memberikan jarak di dalam elemen */
 }
+```
 
 **Jelaskan konsep flex box dan grid layout beserta kegunaannya!**
 ### Flexbox: Flexbox (Flexible Box) adalah modul tata letak CSS yang dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal (baris) maupun vertikal (kolom). Flexbox memudahkan pengaturan tata letak elemen seperti perataan (alignment), distribusi ruang, dan ukuran elemen di dalam container.
@@ -226,6 +230,7 @@ Contoh implementasi gabungan margin, border, dan padding :
   justify-content: space-between;
   align-items: center;
 }
+```
 
 Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
 
@@ -237,6 +242,7 @@ Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen d
   grid-template-columns: 1fr 2fr 1fr;
   gap: 10px;
 }
+```
 
 Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
 
