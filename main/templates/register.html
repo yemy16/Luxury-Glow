@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Register</title>
@@ -67,4 +68,158 @@
         </div>
     </div>
 </div>
+{% endblock content %}
+<div class="register-container">
+  <div class="register-form-wrapper">
+    <!-- Bagian Form Register -->
+    <h2 class="register-heading">Register</h2>
+    <p class="register-subtext">Create a new account to join us</p>
+
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="register-form-group">
+        <label for="username" class="register-label">Username</label>
+        <input type="text" id="username" name="username" class="register-input" required>
+        <small class="register-help-text">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+      </div>
+
+      <div class="register-form-group">
+        <label for="password" class="register-label">Password</label>
+        <input type="password" id="password" name="password" class="register-input" required>
+        <small class="register-help-text">
+          Your password must contain at least 8 characters.<br>
+          Your password can’t be a commonly used password.<br>
+          Your password can’t be entirely numeric.
+        </small>
+      </div>
+
+      <div class="register-form-group">
+        <label for="password_confirmation" class="register-label">Password confirmation</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="register-input" required>
+        <small class="register-help-text">Enter the same password as before, for verification.</small>
+      </div>
+
+      <button type="submit" class="register-btn register-btn-custom">Register</button>
+    </form>
+
+    <hr class="separator">
+
+    <div class="login-wrapper">
+      <p class="login-text">Already have an account?</p>
+      <a href="{% url 'main:login' %}" class="login-btn">Login</a>
+    </div>
+
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+
+<!-- CSS untuk Register -->
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7e1e1;
+  }
+
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Kontainer utama menyesuaikan tinggi layar */
+  }
+
+  .register-form-wrapper {
+    width: 40%; /* Lebar form yang lebih besar setelah menghapus gambar */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+    box-sizing: border-box;
+  }
+
+  .register-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e91e63;
+    text-align: center;
+  }
+
+  .register-subtext {
+    margin-bottom: 20px;
+    color: #777;
+    text-align: center;
+  }
+
+  .register-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .register-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .register-help-text {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 15px;
+  }
+
+  .register-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .register-btn-custom {
+    background-color: #e91e63;
+  }
+
+  .separator {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin: 20px 0;
+  }
+
+  .login-wrapper {
+    text-align: center;
+  }
+
+  .login-text {
+    margin-bottom: 10px;
+    color: #777;
+  }
+
+  .login-btn {
+    display: inline-block; /* Mengubah menjadi block agar tampak seperti tombol */
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
 {% endblock content %}

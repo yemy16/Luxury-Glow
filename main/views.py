@@ -13,19 +13,25 @@ from main.models import Product
 
 @login_required(login_url='/login')
 def show_main(request):
-    product_entries = Product.objects.filter(user=request.user)
-
     context = {
         'app' : 'Luxury Glow',
         'name': request.user.username,
         'kelas': 'PBP B',
-        'product_entries' : product_entries,
         'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
 
 @login_required(login_url='/login')
+def show_products(request):
+    product_entries = Product.objects.filter(user=request.user)
+
+    context = {
+        'product_entries': product_entries,
+    }
+
+    return render(request, "product.html", context)
+
 def create_product_entry(request):
     if request.method == "POST":
         form = ProductEntryForm(request.POST, request.FILES)
@@ -54,6 +60,7 @@ def edit_product(request, id):
         return redirect('main:show_main')
 
     context = {'form': form, 'product': product}
+    context = {'form': form}
     return render(request, "edit_product.html", context)
 
 def delete_product(request, id):
@@ -97,7 +104,7 @@ def login_user(request):
       if form.is_valid():
         user = form.get_user()
         login(request, user)
-        response = HttpResponseRedirect(reverse("main:show_main"))
+        response = HttpResponseRedirect(reverse("main:home"))
         response.set_cookie('last_login', str(datetime.datetime.now()))
         return response
 

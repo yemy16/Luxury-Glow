@@ -45,6 +45,9 @@ body {
     /* Deep pink for the heading */
     text-align: center;
     margin-bottom: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .login-subtext {
@@ -52,6 +55,7 @@ body {
     color: #555555;
     /* Darker gray for contrast */
     text-align: center;
+    text-align: left;
     margin-bottom: 20px;
 }
 
@@ -541,4 +545,123 @@ ul li {
     color: rgb(25, 112, 162); /* Match the header color or choose another */
     cursor: pointer;
     margin-left: 5px; /* Spacing between description and the link */
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Full height of the viewport */
+    background-image: linear-gradient(to bottom, #fce4ec, #fff);
+    /* Add a subtle gradient background */
+    padding: 20px;
+    /* Add some whitespace */
+}
+
+.register h1 {
+    font-size: 2.5em;
+    /* Larger font size for the title */
+    color: #d81b60;
+    /* Deep pink for the heading */
+    text-align: center;
+    /* Centering the heading */
+    margin-bottom: 20px;
+    /* Space below the heading */
+    font-weight: bold;
+    /* Bold heading */
+    font-family: 'Playfair Display', serif;
+    /* Add a serif font for headings */
+}
+
+.register form {
+    background-color: #ffffff;
+    /* White background for the form */
+    border-radius: 15px;
+    /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    padding: 30px;
+    /* Padding inside the form */
+    width: 100%;
+    /* Full width */
+    max-width: 400px;
+    /* Max width for the form */
+    margin: 20px auto;
+    /* Add some whitespace around the form */
+}
+
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="password"] {
+    width: 100%;
+    /* Full width for input fields */
+    padding: 12px;
+    /* Padding inside input fields */
+    border: 1px solid #d81b60;
+    /* Deep pink border */
+    border-radius: 8px;
+    /* Rounded corners for input fields */
+    transition: border-color 0.3s;
+    /* Smooth transition for focus effect */
+    font-size: 1.2em;
+    /* Increase font size for input fields */
+}
+
+.register input[type="text"]:focus,
+.register input[type="email"]:focus,
+.register input[type="password"]:focus {
+    outline: none;
+    /* Remove default outline */
+    border-color: #f48fb1;
+    /* Light pink border on focus */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow on focus */
+}
+
+.register ul {
+    list-style-type: none;
+    /* No bullets */
+    padding: 0;
+    /* No padding */
+    margin: 10px 0;
+    /* Margin above and below the list */
+}
+
+.register ul li {
+    color: #d81b60;
+    /* Deep pink for messages */
+    text-align: center;
+    /* Center messages */
+    font-size: 1.2em;
+    /* Increase font size for messages */
+}
+
+.register p {
+    margin: 10px 0;
+    /* Space around the paragraph */
+    font-size: 1.2em;
+    /* Increase font size for paragraph */
+}
+
+/* Add some metallic accents */
+.register .submit-btn {
+    background-color: #ffd700;
+    /* Golden yellow background */
+    color: #fff;
+    /* White text */
+    border: none;
+    /* No border */
+    padding: 10px 20px;
+    /* Padding inside the button */
+    font-size: 1.2em;
+    /* Increase font size for button */
+    cursor: pointer;
+    /* Add a pointer cursor */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.register .submit-btn:hover {
+    background-color: #ffc400;
+    /* Lighter golden yellow background on hover */
 }
