@@ -147,7 +147,7 @@ Tidak semua cookies aman digunakan, terutama jika tidak dienkripsi dengan benar.
 5) Menambahkan import login_required pada views.py dan menambahkan potongan kode "@login_required(login_url='/login')" agar halaman main hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
 6) Melakukan logout terlebih dahulu, setelah itu menambahkan import HttpResponseRedirect, reverse, dan datetime pada views.py.
 7) Pada fungsi login_user, menambahkan fungsionalitas dengan menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. Pada fungsi show_main menambahkan potongan kode "'last_login': request.COOKIES['last_login']" berfungsi menambahkan informasi cookie last_login pada response yang akan ditampilkan di halaman web. Setelah itu, menambahkan tombol logout untuk menampilkan data last login.
-8) Mengimpor model user pada models.py dan mengubah value dari mood_entries pada fungsi show_main menjadi "mood_entries = MoodEntry.objects.filter(user=request.user)" dan mengubah value dari name pada fungsi show_main menjadi "request.user.username"   
+8) Mengimpor model user pada models.py dan mengubah value dari product_entries pada fungsi show_main menjadi "producr_entries = ProductEntry.objects.filter(user=request.user)" dan mengubah value dari name pada fungsi show_main menjadi "request.user.username"   
 9) Menambahkan import os pada berkas settings.py dan mengganti variabel DEBUG dari berkas settings.py menjadi : 
 PRODUCTION = os.getenv("PRODUCTION", False) dan DEBUG = not PRODUCTION
 </ol>
@@ -247,4 +247,9 @@ Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen d
 Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
-1) Menambah
+1) Menambah tailwind ke aplikasi dan menambahkan tag <meta name="viewport"> agar halaman web  dpat menyesuaikan ukuran.
+2) Pada views.py buat fungsi baru edit_product dan tambahkan import pada file dan membuat berkas HTML baru dengan nama edit_product.html, lalu import fungsi edit_product dan tambahkan path urlnya ke urlpatterns, setelah itu tambah button edit product.
+3) Membuat fungsi baru dengan nama delete_product dan import fungsinya serta menambahkan path url ke dalam url patterns dan menambah button hapus di main.html.
+4) Menambah navigation bar dengan membuat berkas navbar.html, kemudian menautkan navbar tersebut ke dalam main.html, create_product_entry.html, dan edit_product.html.
+5) Menambah middleware WhiteNoise dan variabel STATIC_ROOT, STATICFILES_DIRS, dan STATIC_URL dikonfigurasikan.
+6) Menghubungkan global.css dan script Tailwind ke base.html serta menambahkan custom styling ke global.css. Lalu styling halaman login, halaman register sesuai keinginan, serta halaman home. Setelah itu styling halaman create product entry dan styling untuk halaman edit mood.
