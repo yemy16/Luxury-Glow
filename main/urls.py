@@ -20,7 +20,7 @@ from main.views import show_main, create_product_entry, edit_product, delete_pro
 app_name = 'main'
 
 urlpatterns = [
-    path('', show_main, name='home'),
+    path('', show_main, name='show_main'),
     path('products/', show_products, name='show_products'),
     path('create-product-entry', create_product_entry, name='create_product_entry'),
     path('edit-product/<uuid:id>', edit_product, name='edit_product'),
