@@ -176,7 +176,7 @@ Aplikasi yang Belum Menerapkan Responsive Design :
 
 
 **Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
-Margin : Ruang kosong di luar border yang memisahkan elemen dari elemen lainnya di halaman web. Margin digunakan untuk memberi jarak antar elemen. Sintaks CSS:
+### Margin : Ruang kosong di luar border yang memisahkan elemen dari elemen lainnya di halaman web. Margin digunakan untuk memberi jarak antar elemen. Sintaks CSS:
 
 ```css
 element {
@@ -187,7 +187,7 @@ element {
     margin-left: 23px;  /* Margin kiri */
 }
 
-Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
+### Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
 
 ```css
 element {
@@ -197,7 +197,7 @@ element {
     border-width: 6px; /* Lebar border 6px */
 }
 
-Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
+### Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
 
 ```css
 element {
@@ -218,7 +218,7 @@ Contoh implementasi gabungan margin, border, dan padding :
 }
 
 **Jelaskan konsep flex box dan grid layout beserta kegunaannya!**
-Flexbox: Flexbox (Flexible Box) adalah modul tata letak CSS yang dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal (baris) maupun vertikal (kolom). Flexbox memudahkan pengaturan tata letak elemen seperti perataan (alignment), distribusi ruang, dan ukuran elemen di dalam container.
+### Flexbox: Flexbox (Flexible Box) adalah modul tata letak CSS yang dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal (baris) maupun vertikal (kolom). Flexbox memudahkan pengaturan tata letak elemen seperti perataan (alignment), distribusi ruang, dan ukuran elemen di dalam container.
 
 ```css
 .container {
@@ -227,9 +227,9 @@ Flexbox: Flexbox (Flexible Box) adalah modul tata letak CSS yang dirancang untuk
   align-items: center;
 }
 
-Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
+### Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
 
-Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Dengan grid, kita dapat dengan mudah mendefinisikan area pada halaman, menentukan ukuran kolom dan baris, serta mengatur elemen-elemen agar mengisi tata letak secara responsif.
+### Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Dengan grid, kita dapat dengan mudah mendefinisikan area pada halaman, menentukan ukuran kolom dan baris, serta mengatur elemen-elemen agar mengisi tata letak secara responsif.
 
 ```css
 .container {
@@ -238,6 +238,6 @@ Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen d
   gap: 10px;
 }
 
-Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
+### Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
