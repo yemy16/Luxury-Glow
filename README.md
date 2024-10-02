@@ -1,7 +1,7 @@
 PWS : http://yemima-clara31-luxuryglow.pbp.cs.ui.ac.id
 
 <details>
-<summary>#Tugas 2</summary>
+<summary>Tugas 2</summary>
 <p><strong>**Cara Implementasi Checklist secara step by step**</strong></p>
 <ol>
 1. Membuat repositori baru di GitHub dengan nama Luxury-Glow dan membuat berkas README dalam direktori lokal proyek.
@@ -51,7 +51,7 @@ Model pada Django disebut sebagai ORM dikarenakan memungkinkan pengembang untuk 
 </details>
 
 <details>
-<summary>#Tugas 3</summary>
+<summary>Tugas 3</summary>
 <p><strong>**Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?**</strong></p>
 <ol>
 Kita memerlukan data delivery dalam pengimplementasian platform karena data sering kali perlu dipindahkan dari satu bagian sistem ke bagian lainnya, atau dari server ke client, agar aplikasi dapat berfungsi dengan baik. Data delivery juga memungkinkan berbagai sistem yang menggunakan format data berbeda, seperti XML dan JSON, untuk saling berkomunikasi. Ini membantu integrasi dengan aplikasi lain yang mungkin memiliki format data yang berbeda. Dengan data delivery, pengguna dapat melihat informasi yang diperbarui atau dinamis di aplikasi mereka. Contohnya, ketika pengguna mengisi formulir atau menambahkan data, sistem dapat memproses data tersebut dan menampilkannya kembali dengan cepat dalam format seperti HTML, XML, atau JSON.
@@ -108,7 +108,7 @@ Penyerang dapat membuat halaman web yang secara diam-diam mengirimkan permintaan
 </details>
 
 <details>
-<summary>#Tugas 4</summary>
+<summary>Tugas 4</summary>
 <p><strong>**Apa perbedaan antara HttpResponseRedirect() dan redirect()**</strong></p>
 <ol>
 <ul>
@@ -154,7 +154,7 @@ PRODUCTION = os.getenv("PRODUCTION", False) dan DEBUG = not PRODUCTION
 </details>
 
 <details>
-<summary>#Tugas 5</summary>
+<summary>Tugas 5</summary>
 <p><strong>**Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**</strong></p>
 <ol>
 Ketika terdapat beberapa CSS selector yang diterapkan pada elemen HTML yang sama, urutan prioritas CSS ditentukan oleh specificity (ketepatan seleksi) dari setiap selector. Berikut adalah urutan prioritasnya dari yang tertinggi hingga terendah:
@@ -187,7 +187,7 @@ element {
     margin-left: 23px;  /* Margin kiri */
 }
 
-### Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
+Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
 
 ```css
 element {
@@ -197,7 +197,7 @@ element {
     border-width: 6px; /* Lebar border 6px */
 }
 
-### Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
+Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
 
 ```css
 element {
@@ -227,9 +227,9 @@ Contoh implementasi gabungan margin, border, dan padding :
   align-items: center;
 }
 
-### Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
+Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
 
-### Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Dengan grid, kita dapat dengan mudah mendefinisikan area pada halaman, menentukan ukuran kolom dan baris, serta mengatur elemen-elemen agar mengisi tata letak secara responsif.
+Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Dengan grid, kita dapat dengan mudah mendefinisikan area pada halaman, menentukan ukuran kolom dan baris, serta mengatur elemen-elemen agar mengisi tata letak secara responsif.
 
 ```css
 .container {
@@ -238,6 +238,6 @@ Contoh implementasi gabungan margin, border, dan padding :
   gap: 10px;
 }
 
-### Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
+Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
