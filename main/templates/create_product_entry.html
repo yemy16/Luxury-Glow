@@ -22,7 +22,7 @@
 
       <div class="form-group">
           <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
-          <input type="text" name="price" id="{{ form.price.id_for_label }}" value="Rp 0" placeholder="Rp 0" required />
+          <input type="text" name="price" id="{{ form.price.id_for_label }}" placeholder="Rp 0" required />
           {% if form.price.errors %}
               <ul class="errorlist">
                   {% for error in form.price.errors %}
