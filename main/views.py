@@ -101,6 +101,7 @@ def edit_product(request, id):
 
     context = {'form': form}
     return render(request, "edit_product.html", context)
+
 def delete_product(request, id):
     # Get product berdasarkan id
     product = Product.objects.get(pk = id)
