@@ -48,12 +48,11 @@
             margin-bottom: 20px; /* Jarak bawah untuk memberikan ruang antara isian dan elemen berikutnya */
         }
 
-        /* CSS untuk peringatan */
         .warning {
             font-size: 16px; /* Ukuran font lebih besar dari sebelumnya */
             font-weight: normal; /* Tidak menggunakan bold */
             text-align: center;
-            margin-bottom: 15px; /* Memberikan jarak bawah antara peringatan dan elemen berikutnya */
+            margin-bottom: 15px; 
         }
 
         /* CSS untuk tombol */
@@ -68,7 +67,7 @@
         }
 
         button:hover {
-            background-color: rgb(37, 125, 85); /* Mengubah warna tombol saat di-hover */
+            background-color: rgb(135, 193, 167); /* Mengubah warna tombol saat di-hover */
         }
     </style>
 </head>
@@ -98,6 +97,20 @@
             <td>{{ product_entry.description }}</td>
             <td>{{ product_entry.shade_name }}</td>
             <td>{{ product_entry.stock_quantity }}</td>
+            <td>
+                <a href="{% url 'main:edit_product' product_entry.pk %}">
+                    <button>
+                        Edit
+                    </button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'main:delete_product' product_entry.pk %}">
+                    <button>
+                        Delete
+                    </button>
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </table>
