@@ -1,80 +1,32 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="login-container">
-  <div class="login-content-wrapper">
-<<<<<<< HEAD
-=======
-    <!-- Bagian Form Login -->
->>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
-    <div class="login-form-wrapper">
-      <h2 class="login-heading">Login</h2>
-      <p class="login-subtext">If you are already a member, easily log in</p>
+<div class="login">
+  <h1>Login</h1>
 
-      <form method="POST" action="">
-        {% csrf_token %}
-        <div class="login-form-group">
-          <label for="username" class="login-label">Username</label>
-          <input type="text" id="username" name="username" class="login-input" required>
-        </div>
+  <form method="POST" action="">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+      <tr>
+        <td></td>
+        <td><input class="btn login_btn" type="submit" value="Login" /></td>
+      </tr>
+    </table>
+  </form>
 
-        <div class="login-form-group">
-          <label for="password" class="login-label">Password</label>
-          <div class="password-input-wrapper">
-            <input type="password" id="password" name="password" class="login-input" required>
-            <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
-              <i class="fa fa-eye"></i>
-            </button>
-          </div>
-        </div>
-
-        <button type="submit" class="login-btn login-btn-custom">Login</button>
-      </form>
-
-      <hr class="separator">
-
-      <div class="register-wrapper">
-        <p class="register-text">Don't have an account?</p>
-        <a href="{% url 'main:register' %}" class="register-btn">Register</a>
-      </div>
-
-      {% if messages %}
-      <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-
-    <div class="login-image-wrapper">
-      <img src="{% static 'images/1.jpg' %}" alt="Image" class="login-image">
-    </div>
-  </div>
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} Don't have an account yet?
+  <a href="{% url 'main:register' %}">Register Now</a>
 </div>
 
-<script>
-  function togglePasswordVisibility() {
-    var passwordField = document.getElementById('password');
-    var passwordButton = document.querySelector('.toggle-password i');
-    if (passwordField.type === 'password') {
-      passwordField.type = 'text';
-      passwordButton.classList.remove('fa-eye');
-      passwordButton.classList.add('fa-eye-slash');
-    } else {
-      passwordField.type = 'password';
-      passwordButton.classList.remove('fa-eye-slash');
-      passwordButton.classList.add('fa-eye');
-    }
-  }
-</script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 067c9ca2a2e0de3c9e3423037b167141f4d040ac
 {% endblock content %}
