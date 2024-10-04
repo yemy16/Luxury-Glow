@@ -5,9 +5,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from main.forms import ProductEntryForm
 from main.models import Product
 
@@ -20,22 +20,47 @@ def show_main(request):
         'name': request.user.username,
         'kelas': 'PBP B',
         'product_entries' : product_entries,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'Never'),
     }
 
     return render(request, "main.html", context)
 
+@login_required(login_url='/login')
 def create_product_entry(request):
-    form = ProductEntryForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        product_entry = form.save(commit=False)
-        product_entry.user = request.user
-        product_entry.save()
-        return redirect('main:show_main')
-
+    if request.method == "POST":
+        form = ProductEntryForm(request.POST, request.FILES)
+        if form.is_valid():
+            product_entry = form.save(commit=False)
+            product_entry.user = request.user
+            product_entry.save()
+            return redirect('main:show_main')
+        else:
+            # Jika tidak valid, tampilkan form dengan kesalahan
+            context = {'form': form}
+            return render(request, "create_product_entry.html", context)
+    else:
+        form = ProductEntryForm()
+    
     context = {'form': form}
     return render(request, "create_product_entry.html", context)
+
+def edit_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    form = ProductEntryForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        messages.success(request, 'Product updated successfully!')
+        return redirect('main:show_main')
+
+    context = {'form': form, 'product': product}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    product.delete()
+    messages.success(request, 'Product deleted successfully!')
+    return HttpResponseRedirect(reverse('main:show_main'))
 
 def show_xml(request):
     data = Product.objects.all()
@@ -72,7 +97,7 @@ def login_user(request):
       if form.is_valid():
         user = form.get_user()
         login(request, user)
-        response = HttpResponseRedirect(reverse("main:show_main"))
+        response = HttpResponseRedirect(reverse("main:home"))
         response.set_cookie('last_login', str(datetime.datetime.now()))
         return response
 

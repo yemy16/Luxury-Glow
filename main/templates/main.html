@@ -1,34 +1,12 @@
-<head>
-    <style>
-        /* CSS untuk latar belakang */
-        body {
-            background-color: rgb(255, 253, 208); /* Warna cream dalam format RGB */
-            margin: 0; /* Menghapus margin default */
-            padding: 0; /* Menghapus padding default */
-            display: flex; /* Menggunakan flexbox untuk tata letak */
-            flex-direction: column; /* Mengatur tata letak menjadi kolom */
-            align-items: center; /* Memusatkan elemen secara horizontal */
-            height: 100vh; /* Mengatur tinggi penuh halaman */
-        }
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
 
-        /* CSS untuk judul utama */
-        h1 {
-            text-align: center; /* Memusatkan judul utama */
-            color: rgb(25, 112, 162); /* Warna biru laut dalam format RGB */
-            font-size: 36px; /* Ukuran font untuk judul utama */
-            margin: 20px 0; /* Jarak atas dan bawah untuk judul utama */
-            width: 100%; /* Memastikan judul utama mengambil satu baris penuh */
-        }
+{% block content %}
+{% include 'navbar.html' %}
 
-        /* CSS untuk wadah informasi */
-        .info-container {
-            display: flex; /* Menggunakan flexbox untuk menata judul dan isiannya */
-            justify-content: space-around; /* Memberikan jarak antar elemen */
-            width: 80%; /* Mengatur lebar wadah */
-            flex-grow: 1; /* Membuat kontainer tumbuh untuk menempati ruang kosong */
-            align-items: center; /* Memusatkan elemen secara vertikal */
-        }
-
+<body class="mn">
+    <h1 class="header">~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
         /* CSS untuk judul dengan pink tua */
         .title {
             color: rgb(170, 73, 123); /* Pink tua dalam format RGB */
@@ -132,14 +110,73 @@
         <div>
             <h5 class="title">App :</h5>
             <p class="content">{{ app }}</p>
+    <div class="product-container">
+        <div class="add-product-button">
+            <a href="{% url 'main:create_product_entry' %}">
+                <button class="add-product-btn">Add Product</button>
+            </a>
         </div>
-        <div>
-            <h5 class="title">Name :</h5>
-            <p class="content">{{ name }}</p>
-        </div>
-        <div>
-            <h5 class="title">Kelas :</h5>
-            <p class="content">{{ kelas }}</p>
+        <div class="info-container">
+            {% if product_entries %}
+            {% for product_entry in product_entries %}
+            <div class="card">
+                <img src="{{ product_entry.image.url }}" alt="{{ product_entry.name }} Image">
+                <h5>{{ product_entry.name }}</h5>
+                <p><b>Price:</b> Rp {{ product_entry.price|floatformat:0|intcomma }}</p>
+                <div class="description-container">
+                    <p class="description">
+                        <b>Description:</b> 
+                        <span class="description-text" style="display: none;">{{ product_entry.description }}</span>
+                        <span class="see-more" onclick="toggleDescription(event)">See Description</span>
+                    </p>
+                </div>                           
+                <p><b>Shade Name:</b> {{ product_entry.shade_name }}</p>
+                <p><b>Stock Quantity:</b> {{ product_entry.stock_quantity }}</p>
+                <div class="button-container">
+                    {% if product_entry.pk %}
+                    <a href="{% url 'main:edit_product' product_entry.pk %}">
+                        <button>
+                            <i class="fas fa-pencil-alt" style="font-size: 20px; color: white;"></i>
+                        </button>
+                    </a>
+                    <a href="{% url 'main:delete_product' product_entry.pk %}">
+                        <button>
+                            <i class="fas fa-trash" style="font-size: 20px; color: white;"></i>
+                        </button>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="no-products">
+                <h2>Produk belum tersedia, harap input produk.</h2>
+            </div>
+            {% endif %}
         </div>
     </div>
+
+    <div class="footer-info">
+        <p><b>Sesi terakhir login:</b> {{ last_login }}</p>
+        <p><b>App</b> : {{ app }} | <b>Name</b> : {{ name }} | <b>Kelas</b> : {{ kelas }}</p>
+    </div>
+
+    <script>
+        function toggleDescription(event) {
+            event.preventDefault();
+            const descriptionText = event.target.previousElementSibling;
+            const seeMoreLink = event.target;
+
+            if (descriptionText.style.display === "none") {
+                descriptionText.style.display = "inline";
+                seeMoreLink.innerText = "Hide Description";
+            } else {
+                descriptionText.style.display = "none";
+                seeMoreLink.innerText = "See Description";
+            }
+        }
+    </script>
+
 </body>
+
+{% endblock content %}

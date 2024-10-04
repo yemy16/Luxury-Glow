@@ -1,7 +1,9 @@
 PWS : http://yemima-clara31-luxuryglow.pbp.cs.ui.ac.id
 
-# TUGAS 2
-**Cara Implementasi Checklist secara step by step** : 
+<details>
+<summary>Tugas 2</summary>
+<p><strong>**Cara Implementasi Checklist secara step by step**</strong></p>
+<ol>
 1. Membuat repositori baru di GitHub dengan nama Luxury-Glow dan membuat berkas README dalam direktori lokal proyek.
 2. Menghubungkan repositori lokal dengan repositori di github. 
 3. Melakukan cloning repositori ke komputer lokal dengan url clone eccomerce.
@@ -45,9 +47,13 @@ Menurut saya, Framework Django dijadikan permulaan pembelajaran dikarenakan Kemu
 
 **Mengapa model pada Django disebut sebagai ORM?**
 Model pada Django disebut sebagai ORM dikarenakan memungkinkan pengembang untuk berinteraksi dengan database menggunakan objek Python dan metode, tanpa perlu menulis query SQL. Django ORM akan secara otomatis menerjemahkan operasi yang dilakukan pada objek Python menjadi perintah SQL yang setara. Django disebut ORM juga karena menyediakan interface berbasis python untuk melakukan operasi CRUD (Create, Read, Uodate, Delete) pada data dalam database. 
+</ol>
+</details>
 
-# TUGAS 3
-**Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?**
+<details>
+<summary>Tugas 3</summary>
+<p><strong>**Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?**</strong></p>
+<ol>
 Kita memerlukan data delivery dalam pengimplementasian platform karena data sering kali perlu dipindahkan dari satu bagian sistem ke bagian lainnya, atau dari server ke client, agar aplikasi dapat berfungsi dengan baik. Data delivery juga memungkinkan berbagai sistem yang menggunakan format data berbeda, seperti XML dan JSON, untuk saling berkomunikasi. Ini membantu integrasi dengan aplikasi lain yang mungkin memiliki format data yang berbeda. Dengan data delivery, pengguna dapat melihat informasi yang diperbarui atau dinamis di aplikasi mereka. Contohnya, ketika pengguna mengisi formulir atau menambahkan data, sistem dapat memproses data tersebut dan menampilkannya kembali dengan cepat dalam format seperti HTML, XML, atau JSON.
 
 **Menurutmu, mana yang lebih baik antara XML dan JSON?**
@@ -98,9 +104,13 @@ Penyerang dapat membuat halaman web yang secara diam-diam mengirimkan permintaan
 
 **Hasil akses URL JSON by ID**
 ![alt text](image-3.png)
+</ol>
+</details>
 
-# Tugas 4
-**Apa perbedaan antara HttpResponseRedirect() dan redirect()**
+<details>
+<summary>Tugas 4</summary>
+<p><strong>**Apa perbedaan antara HttpResponseRedirect() dan redirect()**</strong></p>
+<ol>
 <ul>
 <li> HttpResponseRedirect() adalah metode dari Django yang secara eksplisit digunakan untuk membuat objek respons yang mengarahkan pengguna ke URL tertentu. Ini secara eksplisit menggunakan URL sebagai argumen dan mengembalikan respons redirect HTTP ke browser pengguna. Dilakukan secara manual menentukan URL tujuan dalam bentuk string. </li>
 <li> redirect() adalah metode yang lebih mudah digunakan karena secara otomatis menerima nama tampilan (view) atau URL yang ingin diarahkan. Ini adalah versi shortcut dari HttpResponseRedirect() yang disediakan oleh Django. Pengguna dapat menggunakan nama tampilan Django yang sudah didefinisikan atau objek URL, sehingga lebih fleksibel. Pada tugas 4 ini, URL telah didefinisikan di urls.py, redirect() secara otomatis akan mengkonversinya ke URL lengkap dan kemudian mengembalikan redirect HTTP. </li>
@@ -137,6 +147,109 @@ Tidak semua cookies aman digunakan, terutama jika tidak dienkripsi dengan benar.
 5) Menambahkan import login_required pada views.py dan menambahkan potongan kode "@login_required(login_url='/login')" agar halaman main hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
 6) Melakukan logout terlebih dahulu, setelah itu menambahkan import HttpResponseRedirect, reverse, dan datetime pada views.py.
 7) Pada fungsi login_user, menambahkan fungsionalitas dengan menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. Pada fungsi show_main menambahkan potongan kode "'last_login': request.COOKIES['last_login']" berfungsi menambahkan informasi cookie last_login pada response yang akan ditampilkan di halaman web. Setelah itu, menambahkan tombol logout untuk menampilkan data last login.
-8) Mengimpor model user pada models.py dan mengubah value dari mood_entries pada fungsi show_main menjadi "mood_entries = MoodEntry.objects.filter(user=request.user)" dan mengubah value dari name pada fungsi show_main menjadi "request.user.username"   
+8) Mengimpor model user pada models.py dan mengubah value dari product_entries pada fungsi show_main menjadi "producr_entries = ProductEntry.objects.filter(user=request.user)" dan mengubah value dari name pada fungsi show_main menjadi "request.user.username"   
 9) Menambahkan import os pada berkas settings.py dan mengganti variabel DEBUG dari berkas settings.py menjadi : 
 PRODUCTION = os.getenv("PRODUCTION", False) dan DEBUG = not PRODUCTION
+</ol>
+</details>
+
+<details>
+<summary>Tugas 5</summary>
+<p><strong>**Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**</strong></p>
+<ol>
+Ketika terdapat beberapa CSS selector yang diterapkan pada elemen HTML yang sama, urutan prioritas CSS ditentukan oleh specificity (ketepatan seleksi) dari setiap selector. Berikut adalah urutan prioritasnya dari yang tertinggi hingga terendah:
+1) Inline Styles: Gaya yang langsung ditambahkan pada elemen menggunakan atribut style="" memiliki prioritas tertinggi.
+2) ID Selector: Selector yang menggunakan format #id_name akan diterapkan setelah inline styles jika ada, karena ID bersifat unik dan memiliki nilai specificity yang tinggi.
+3) Class Selector, Attribute Selector, dan Pseudo-class Selector: Selector yang menggunakan .class_name atau format [attribute=value] serta pseudo-class seperti :hover berada pada tingkat berikutnya dalam urutan prioritas.
+4) Element Selector: Selector yang hanya memilih berdasarkan elemen HTML seperti div, p, h1, dll. memiliki prioritas terendah.
+5) Browser Default Styles: Gaya bawaan browser akan diterapkan paling terakhir jika tidak ada style lain yang mendefinisikan elemen tersebut.
+Jika terdapat beberapa selector dengan tingkat prioritas yang sama, maka CSS yang muncul paling akhir dalam file akan diterapkan. Hal ini disebut dengan cascading.
+
+
+**Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!**
+Responsive design adalah konsep penting karena pengguna mengakses web dari berbagai perangkat dengan ukuran layar yang berbeda, seperti desktop, tablet, dan ponsel pintar. Oleh karena itu, desain web harus dapat menyesuaikan tampilannya agar konten dapat dibaca dan elemen dapat digunakan dengan nyaman di semua perangkat.
+Contoh:
+Aplikasi yang Sudah Menerapkan Responsive Design :
+- Twitter: Menggunakan layout yang fleksibel dan mengubah tampilan berdasarkan lebar layar. Pada layar kecil, sidebar akan disembunyikan dan menu navigasi berubah menjadi ikon-ikon.
+Aplikasi yang Belum Menerapkan Responsive Design :
+- Craigslist: Dirancang untuk tampilan desktop dan ketika diakses pada layar kecil (seperti ponsel), tampilan menjadi terpotong dan font terlalu kecil.
+
+
+**Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
+### Margin : Ruang kosong di luar border yang memisahkan elemen dari elemen lainnya di halaman web. Margin digunakan untuk memberi jarak antar elemen. Sintaks CSS:
+
+```css
+element {
+    margin: 27px; /* Semua sisi (atas, kanan, bawah, kiri) */
+    margin-top: 17px;  /* Margin atas */
+    margin-bottom: 17px; /* Margin bawah */
+    margin-right: 22px; /* Margin kanan */
+    margin-left: 23px;  /* Margin kiri */
+}
+```
+
+Border: Garis yang mengelilingi elemen di antara margin dan padding. Border digunakan untuk membingkai elemen dengan gaya tertentu. Sintaks CSS:
+
+```css
+element {
+    border-style: groove; /* Gaya border menjadi groove */
+    border-color: blue; /* Warna border biru */
+    border: 4px solid black; /* Border hitam dengan ketebalan 4px */
+    border-width: 6px; /* Lebar border 6px */
+}
+```
+
+Padding: Ruang kosong di dalam elemen yang memisahkan konten dari border. Padding digunakan untuk memberi jarak antara isi elemen (teks atau gambar) dengan tepi elemen. Sintaks CSS:
+
+```css
+element {
+    padding: 18px; /* Semua sisi (atas, kanan, bawah, kiri) */
+    padding-top: 13px; /* Padding atas */
+    padding-bottom: 13px; /* Padding bawah */
+    padding-right: 16px; /* Padding kanan */
+    padding-left: 16px; /* Padding kiri */
+}
+```
+
+Contoh implementasi gabungan margin, border, dan padding : 
+```css
+.box {
+    width: 220px;
+    margin: 50px; /* Memberikan jarak di luar elemen */
+    border: 10px solid red; /* Border merah 10px di sekitar elemen */
+    padding: 40px;        /* Memberikan jarak di dalam elemen */
+}
+```
+
+**Jelaskan konsep flex box dan grid layout beserta kegunaannya!**
+### Flexbox: Flexbox (Flexible Box) adalah modul tata letak CSS yang dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal (baris) maupun vertikal (kolom). Flexbox memudahkan pengaturan tata letak elemen seperti perataan (alignment), distribusi ruang, dan ukuran elemen di dalam container.
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+Flexbox cocok digunakan untuk membuat layout yang membutuhkan tata letak elemen dalam satu baris atau kolom, seperti navbar, tombol di dalam card, atau daftar produk.
+
+Grid Layout: Grid Layout adalah modul CSS yang digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Dengan grid, kita dapat dengan mudah mendefinisikan area pada halaman, menentukan ukuran kolom dan baris, serta mengatur elemen-elemen agar mengisi tata letak secara responsif.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+```
+
+Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengaturan posisi elemen di dalam baris dan kolom, seperti tata letak dashboard, galeri gambar, atau struktur halaman yang kompleks.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
+1) Menambah tailwind ke aplikasi dan menambahkan tag <meta name="viewport"> agar halaman web  dpat menyesuaikan ukuran.
+2) Pada views.py buat fungsi baru edit_product dan tambahkan import pada file dan membuat berkas HTML baru dengan nama edit_product.html, lalu import fungsi edit_product dan tambahkan path urlnya ke urlpatterns, setelah itu tambah button edit product.
+3) Membuat fungsi baru dengan nama delete_product dan import fungsinya serta menambahkan path url ke dalam url patterns dan menambah button hapus di main.html.
+4) Menambah navigation bar dengan membuat berkas navbar.html, kemudian menautkan navbar tersebut ke dalam main.html, create_product_entry.html, dan edit_product.html.
+5) Menambah middleware WhiteNoise dan variabel STATIC_ROOT, STATICFILES_DIRS, dan STATIC_URL dikonfigurasikan.
+6) Menghubungkan global.css dan script Tailwind ke base.html serta menambahkan custom styling ke global.css. Lalu styling halaman login, halaman register sesuai keinginan, serta halaman home. Setelah itu styling halaman create product entry dan styling untuk halaman edit mood.
