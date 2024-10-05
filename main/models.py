@@ -1,17 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
 import uuid
-from django.core.validators import MinValueValidator, MaxValueValidator  # Import validator
+from django.contrib.auth.models import User
 
+# Create your models here.
 class Product(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=255)
-    price = models.IntegerField(default=0) 
+    name = models.CharField(max_length=255) 
+    price = models.IntegerField()             
     description = models.TextField()
-    shade_name = models.CharField(max_length=100)
+    shade_name = models.CharField(max_length=255,  default='Uncategorized')
     stock_quantity = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='products/', null=True, blank=True)  
 
     def __str__(self):
         return self.name

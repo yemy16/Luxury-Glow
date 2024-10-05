@@ -7,16 +7,16 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="flex flex-col min-h-screen bg-gray-100">
-  <div class="container mx-auto px-4 py-8 mt-16 max-w-xl">
-    <h1 class="text-3xl font-bold text-center mb-8 text-black">Create Product Entry</h1>
+<div class="flex flex-col min-h-screen" style="background-color: rgb(242, 223, 245);">
+  <div class="container mx-auto px-4 py-8 max-w-md mt-16 shadow-lg rounded-lg" style="background-color: rgb(255, 245, 248); border: 1px solid rgb(220, 112, 147);">
+    <h1 class="text-3xl font-bold text-center mb-8" style="color: rgb(181, 54, 144);">Add New Product Entry</h1>
   
-    <div class="bg-white shadow-md rounded-lg p-6 form-style">
+    <div class="bg-white shadow-md rounded-lg p-8">
       <form method="POST" class="space-y-6">
         {% csrf_token %}
         {% for field in form %}
           <div class="flex flex-col">
-            <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-gray-700">
+            <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-pink-700">
               {{ field.label }}
             </label>
             <div class="w-full">
@@ -31,8 +31,8 @@
           </div>
         {% endfor %}
         <div class="flex justify-center mt-6">
-          <button type="submit" class="bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 transition duration-300 ease-in-out w-full">
-            Create Product Entry
+          <button type="submit" class="bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-pink-700 transition duration-300 ease-in-out w-full">
+            Add New Product Entry
           </button>
         </div>
       </form>
