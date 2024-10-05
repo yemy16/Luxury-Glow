@@ -1,38 +1,37 @@
 <div class="relative break-inside-avoid p-4">
     <div class="relative top-5 shadow-md rounded-lg mb-6 flex flex-col border"
-         style="background-color: rgb(210, 244, 217); border-color: rgb(237, 210, 241);">
+         style="background-color: rgb(255, 255, 255); border: 1px solid rgb(230, 230, 230);">
+      
       <!-- Gambar Produk -->
-      <div class="p-4 flex justify-center items-center"
-           style="background-color: rgb(209, 240, 215); border-top-left-radius: 12px; border-top-right-radius: 12px;">
-        <picture class="w-full h-48 mb-3 mx-auto border rounded-md overflow-hidden block"
-                 style="border-color: rgb(252, 231, 243);">
+      <div class="p-4 flex justify-center items-center bg-white rounded-t-lg">
+        <picture class="w-full h-48 mb-3 mx-auto border-2 border-gray-200 rounded-md overflow-hidden block">
           <img class="w-full h-full object-cover"
                src="{% if product_entry.image_url %}{{ product_entry.image_url }}{% else %}/static/image/dummy.jpg{% endif %}"
                alt="{{ product_entry.name }}">
         </picture>
       </div>
+
       <!-- Informasi Produk -->
-      <div class="p-4" style="background-color: rgb(205, 241, 251);">
-        <h3 class="font-bold text-center mb-1" style="color: rgb(219, 112, 147); font-size: 1.125rem;">{{ product_entry.name }}</h3>
-        <p class="text-center font-semibold mb-2" style="color: rgb(31, 117, 117);">Price: Rp {{ product_entry.price }}</p>
-        <p class="text-center mb-2" style="color: rgb(114, 50, 116);">
-          <strong>Description:</strong> <span>{{ product_entry.description }}</span>
+      <div class="p-4">
+        <h3 class="font-bold text-center text-pink-600 text-lg mb-1">{{ product_entry.name }}</h3>
+        <p class="text-center text-pink-500 font-semibold mb-2">Price: Rp {{ product_entry.price }}</p>
+        <p class="text-center text-gray-700 mb-2">
+          <strong>Description:</strong> <span class="underline text-blue-500 hover:text-blue-700 cursor-pointer">{{ product_entry.description }}</span>
         </p>
-        <p class="text-center mb-1" style="color: rgb(94, 147, 73);"><strong>Shade Name:</strong> {{ product_entry.shade_name }}</p>
-        <p class="text-center mb-4" style="color: rgb(57, 126, 153);"><strong>Stock Quantity:</strong> {{ product_entry.stock_quantity }}</p>
+        <p class="text-center text-gray-700 mb-1"><strong>Shade Name:</strong> {{ product_entry.shade_name }}</p>
+        <p class="text-center text-gray-700 mb-4"><strong>Stock Quantity:</strong> {{ product_entry.stock_quantity }}</p>
+
         <!-- Tombol Edit dan Delete -->
         <div class="flex justify-center space-x-4 mt-4">
           <a href="{% url 'main:edit_product' product_entry.pk %}"
-             class="rounded-md p-2 transition duration-300 shadow-md flex items-center justify-center"
-             style="background-color: rgb(174, 136, 221); color: rgb(255, 255, 255); border: none;"
+             class="bg-pink-500 hover:bg-pink-600 text-white rounded-md p-2 transition duration-300 shadow-md flex items-center justify-center"
              title="Edit Product">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
               <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
             </svg>
           </a>
           <a href="{% url 'main:delete_product' product_entry.pk %}"
-             class="rounded-md p-2 transition duration-300 shadow-md flex items-center justify-center"
-             style="background-color: rgb(220, 20, 60); color: rgb(255, 255, 255); border: none;"
+             class="bg-red-500 hover:bg-red-600 text-white rounded-md p-2 transition duration-300 shadow-md flex items-center justify-center"
              title="Delete Product">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
@@ -44,4 +43,3 @@
       </div>
     </div>
   </div>
-  
