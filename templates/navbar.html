@@ -1,51 +1,71 @@
 <nav style="background-color: rgb(181, 171, 232);" class="shadow-lg fixed top-0 left-0 z-40 w-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
+        <!-- Bagian Kiri: Logo -->
         <div class="flex items-center">
-          <h1 class="text-2xl font-bold text-center text-black">Luxury Glow</h1>
+          <h1 class="text-2xl font-bold text-center text-white">Luxury Glow</h1>
         </div>
+  
+        <!-- Bagian Tengah: Menu Statis (Home, Products, Categories, Cart) -->
+        <div class="hidden md:flex items-center space-x-6 text-white">
+          <span style="color: rgb(109, 238, 253);">Home</span>
+          <span style="color: rgb(109, 238, 253);">Products</span>
+          <span style="color: rgb(109, 238, 253);">Categories</span>
+          <span style="color: rgb(109, 238, 253);">Cart</span>
+        </div>
+  
+        <!-- Bagian Kanan: User Info dan Logout -->
         <div class="hidden md:flex items-center">
           {% if user.is_authenticated %}
-            <span style="color: rgb(21, 108, 23);" class="mr-4">Welcome, {{ user.username }}</span>
-            <a href="{% url 'main:logout' %}" style="background-color: rgb(255, 69, 58);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300">
+            <span style="color: rgb(255, 255, 255);" class="mr-4">Welcome, {{ user.username }}</span>
+            <button style="background-color: rgb(255, 69, 58);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300 cursor-default">
               Logout
-            </a>
+            </button>
           {% else %}
-            <a href="{% url 'main:login' %}" style="background-color: rgb(81, 31, 146);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300 mr-2">
+            <button style="background-color: rgb(81, 31, 146);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300 mr-2 cursor-default">
               Login
-            </a>
-            <a href="{% url 'main:register' %}" style="background-color: rgb(48, 209, 88);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300">
+            </button>
+            <button style="background-color: rgb(48, 209, 88);" class="text-center text-white font-bold py-2 px-4 rounded transition duration-300 cursor-default">
               Register
-            </a>
+            </button>
           {% endif %}
         </div>
+  
+        <!-- Tombol Menu Mobile -->
         <div class="md:hidden flex items-center">
           <button class="mobile-menu-button">
-            <svg class="w-6 h-6 text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
         </div>
       </div>
     </div>
-    <!-- Mobile menu -->
-    <div class="mobile-menu hidden md:hidden px-4 w-full md:max-w-full">
-      <div class="pt-2 pb-3 space-y-1 mx-auto">
+  
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden px-4 w-full md:max-w-full bg-pink-600">
+      <div class="pt-2 pb-3 space-y-1 mx-auto text-white">
+        <!-- Menu Items Mobile Version -->
+        <span class="block px-3 py-2">Home</span>
+        <span class="block px-3 py-2">Products</span>
+        <span class="block px-3 py-2">Categories</span>
+        <span class="block px-3 py-2">Cart</span>
         {% if user.is_authenticated %}
-          <span style="color: rgb(27, 61, 68);" class="block px-3 py-2">Welcome, {{ user.username }}</span>
-          <a href="{% url 'main:logout' %}" style="background-color: rgb(255, 69, 58);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300">
+          <span style="color: rgb(255, 255, 255);" class="block px-3 py-2">Welcome, {{ user.username }}</span>
+          <button style="background-color: rgb(255, 69, 58);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300 cursor-default">
             Logout
-          </a>
+          </button>
         {% else %}
-          <a href="{% url 'main:login' %}" style="background-color: rgb(0, 122, 255);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300 mb-2">
+          <button style="background-color: rgb(81, 31, 146);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300 cursor-default mb-2">
             Login
-          </a>
-          <a href="{% url 'main:register' %}" style="background-color: rgb(48, 209, 88);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300">
+          </button>
+          <button style="background-color: rgb(48, 209, 88);" class="block text-center text-white font-bold py-2 px-4 rounded transition duration-300 cursor-default">
             Register
-          </a>
+          </button>
         {% endif %}
       </div>
     </div>
+  
     <script>
       const btn = document.querySelector("button.mobile-menu-button");
       const menu = document.querySelector(".mobile-menu");
@@ -54,4 +74,5 @@
         menu.classList.toggle("hidden");
       });
     </script>
-</nav>
+  </nav>
+  
