@@ -1,145 +1,44 @@
-<head>
-    <style>
-        /* CSS untuk latar belakang */
-        body {
-            background-color: rgb(255, 253, 208); /* Warna cream dalam format RGB */
-            margin: 0; /* Menghapus margin default */
-            padding: 0; /* Menghapus padding default */
-            display: flex; /* Menggunakan flexbox untuk tata letak */
-            flex-direction: column; /* Mengatur tata letak menjadi kolom */
-            align-items: center; /* Memusatkan elemen secara horizontal */
-            height: 100vh; /* Mengatur tinggi penuh halaman */
-        }
+{% extends 'base.html' %}
+{% load static %}
 
-        /* CSS untuk judul utama */
-        h1 {
-            text-align: center; /* Memusatkan judul utama */
-            color: rgb(25, 112, 162); /* Warna biru laut dalam format RGB */
-            font-size: 36px; /* Ukuran font untuk judul utama */
-            margin: 20px 0; /* Jarak atas dan bawah untuk judul utama */
-            width: 100%; /* Memastikan judul utama mengambil satu baris penuh */
-        }
+{% block meta %}
+<title>Luxury Glow</title>
+{% endblock meta %}
+{% block content %}
+{% include 'navbar.html' %}
 
-        /* CSS untuk wadah informasi */
-        .info-container {
-            display: flex; /* Menggunakan flexbox untuk menata judul dan isiannya */
-            justify-content: space-around; /* Memberikan jarak antar elemen */
-            width: 80%; /* Mengatur lebar wadah */
-            flex-grow: 1; /* Membuat kontainer tumbuh untuk menempati ruang kosong */
-            align-items: center; /* Memusatkan elemen secara vertikal */
-        }
-
-        /* CSS untuk judul dengan pink tua */
-        .title {
-            color: rgb(170, 73, 123); /* Pink tua dalam format RGB */
-            text-align: center; /* Memusatkan judul */
-            font-size: 24px; /* Ukuran font untuk judul App, Name, Class */
-            font-weight: bold; /* Membuat judul menjadi bold */
-            margin: 0; /* Menghapus margin default */
-            margin-bottom: 10px; /* Jarak bawah untuk memberikan ruang antara judul dan isian */
-        }
-
-        /* CSS untuk isian */
-        .content {
-            color: rgb(161, 60, 161); /* Ungu dalam format RGB */
-            text-align: center; /* Memusatkan isian */
-            font-size: 20px; /* Ukuran font untuk isian */
-            margin: 0; /* Menghapus margin default */
-            margin-bottom: 20px; /* Jarak bawah untuk memberikan ruang antara isian dan elemen berikutnya */
-        }
-
-        .warning {
-            font-size: 16px; /* Ukuran font lebih besar dari sebelumnya */
-            font-weight: normal; /* Tidak menggunakan bold */
-            text-align: center;
-            margin-bottom: 15px; 
-        }
-
-        /* CSS untuk tombol */
-        button {
-            background-color: rgb(37, 162, 83); /* Warna merah untuk tombol */
-            color: white; /* Warna teks pada tombol */
-            padding: 10px 20px; /* Mengatur padding untuk tombol */
-            border: none; /* Menghilangkan border */
-            border-radius: 5px; /* Membuat sudut tombol melengkung */
-            cursor: pointer; /* Mengubah kursor menjadi pointer saat di-hover */
-            font-size: 16px; /* Ukuran font pada tombol */
-        }
-
-        button:hover {
-            background-color: rgb(135, 193, 167); /* Mengubah warna tombol saat di-hover */
-        }
-    </style>
-</head>
-<body>
-    <h1>~ Discover Your Radiant Beauty at Luxury Glow ~</h1>
-
+<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gradient-to-r from-violet-200 to-pink-200 flex flex-col">
+  <h2 class="text-xl font-extrabold text-rose-400 mb-3 text-center">User Info</h2>
+  <img src="/static/image/profile.png" alt="Profile" class="w-40 h-40 mb-3 rounded-full mx-auto border-4 border-rose-400"/>
+  <div class="p-2 mb-6 relative">
+    <div class="relative grid lg:grid-cols-2 md:grid-cols-2 gap-5 z-30">
+      {% include "card_info.html" with title='Name' value=nama %}
+      {% include "card_info.html" with title='Class' value=kelas %}
+    </div>
+  
+</div>
+    <div class="px-3 mb-4">
+      <div class="flex rounded-md items-center bg-pink-700 py-2 px-4 w-fit">
+        <h1 class="text-white text-center">Last Login: {{last_login}}</h1>
+      </div>
+    </div>
+    <div class="flex justify-end mb-6">
+        <a href="{% url 'main:create_product_entry' %}" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+            Add New product Entry
+        </a>
+    </div>
+    
     {% if not product_entries %}
-    <div class="warning">
-        <p> !! Belum ada data product pada Luxury Glow !! </p>
+    <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+        <img src="/static/image/sedih-banget.png" alt="Sad face" class="w-32 h-32 mb-4"/>
+        <p class="text-center text-gray-600 mt-4">Belum ada data product pada Luxury Glow.</p>
     </div>
     {% else %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Shade Name</th>
-            <th>Stock Quantity</th>
-        </tr>
-
-        {% comment %} Menampilkan data skincare makeup di bawah baris ini 
-        {% endcomment %} 
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
         {% for product_entry in product_entries %}
-        <tr>
-            <td>{{ product_entry.name }}</td>
-            <td>{{ product_entry.price }}</td>
-            <td>{{ product_entry.description }}</td>
-            <td>{{ product_entry.shade_name }}</td>
-            <td>{{ product_entry.stock_quantity }}</td>
-            <td>
-                <a href="{% url 'main:edit_product' product_entry.pk %}">
-                    <button>
-                        Edit
-                    </button>
-                </a>
-            </td>
-         <tr>
-                <a href="{% url 'main:delete_product' product_entry.pk %}">
-                    <button>
-                        Delete
-                    </button>
-                </a>
-            </td>
-        </tr>
+            {% include 'card_product.html' with product_entry=product_entry %}
         {% endfor %}
-    </table>
-    {% endif %}
-
-    <br />
-
-    <a href="{% url 'main:create_product_entry' %}">
-        <button>Add New Skincare or Makeup</button>
-    </a>
-
-    <a href="{% url 'main:logout' %}">
-        <button>Logout</button>
-      </a>
-
-      <h5>Sesi terakhir login: {{ last_login }}</h5>
-
-    <div class="info-container">
-        <div>
-            <h5 class="title">App :</h5>
-            <p class="content">{{ app }}</p>
-        </div>
-        <div>
-            <h5 class="title">Name :</h5>
-            <p class="content">{{ name }}</p>
-        </div>
-        <div>
-            <h5 class="title">Kelas :</h5>
-            <p class="content">{{ kelas }}</p>
-        </div>
     </div>
-</body>
+    {% endif %}
+</div>
+{% endblock content %}
