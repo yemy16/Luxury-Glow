@@ -253,9 +253,12 @@ Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengat
 4) Menambah navigation bar dengan membuat berkas navbar.html, kemudian menautkan navbar tersebut ke dalam main.html, create_product_entry.html, dan edit_product.html.
 5) Menambah middleware WhiteNoise dan variabel STATIC_ROOT, STATICFILES_DIRS, dan STATIC_URL dikonfigurasikan.
 6) Menghubungkan global.css dan script Tailwind ke base.html serta menambahkan custom styling ke global.css. Lalu styling halaman login, halaman register sesuai keinginan, serta halaman home. Setelah itu styling halaman create product entry dan styling untuk halaman edit product.
+</details>
+
 
 <details>
 <summary>Tugas 6</summary>
+
 **Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!**
 JavaScript memiliki peran penting dalam pengembangan aplikasi web modern karena kemampuannya untuk memberikan interaktivitas yang dinamis pada halaman web. Beberapa manfaat utama penggunaan JavaScript adalah:
 1. Meningkatkan Interaktivitas 
@@ -269,7 +272,7 @@ JavaScript dapat menangani logika bisnis sederhana di sisi pengguna, sehingga da
 5. Kompatibilitas Cross-Browser
 JavaScript berjalan pada hampir semua peramban modern, sehingga kompatibilitasnya baik untuk berbagai platform web.
 
-Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+**Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?**
 await digunakan untuk menunggu hasil dari pemanggilan fetch() yang berbasis Promise. fetch() secara default bersifat asinkron, yang berarti akan mengembalikan Promise yang belum terisi dengan data (pending) saat pemanggilan pertama kali. Dengan await, kita bisa menunggu hingga permintaan (request) tersebut selesai dan mendapatkan respons dari server sebelum melanjutkan eksekusi baris kode berikutnya.
 Jika wait tidak digunakan, kode akan mengeksekusi baris selanjutnya secara langsung tanpa menunggu hasil dari fetch(), sehingga variabel yang dimaksud untuk menyimpan hasil respons akan berisi undefined. Hal ini menyebabkan kemungkinan error ketika mencoba mengakses data respons yang belum tersedia (karena proses belum selesai).
 
@@ -277,14 +280,16 @@ Jika wait tidak digunakan, kode akan mengeksekusi baris selanjutnya secara langs
 Decorator csrf_exempt digunakan untuk menonaktifkan pemeriksaan Cross-Site Request Forgery (CSRF) pada view tertentu. Django secara default menerapkan pemeriksaan CSRF untuk semua permintaan POST, PUT, dan DELETE guna mencegah serangan CSRF. Namun, pada saat mengimplementasikan AJAX POST request yang tidak mengirimkan token CSRF (misalnya permintaan yang dikirim dari sumber eksternal atau dengan kode JavaScript yang tidak menyertakan token CSRF), permintaan tersebut akan ditolak oleh Django. Dengan menambahkan @csrf_exempt, kita memberitahu Django bahwa view tersebut tidak perlu melakukan pemeriksaan token CSRF pada permintaan tersebut.
 
 **Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?**
+
 Pembersihan data input pengguna di backend sangat penting meskipun kita telah melakukan validasi dan pembersihan di frontend, karena beberapa hal berikut :
-  - Keamanan
+1. Keamanan
    Validasi dan pembersihan di frontend mudah diabaikan oleh pengguna yang jahat. Mereka bisa memodifikasi data melalui alat seperti DevTools di browser, mengirimkan permintaan langsung menggunakan curl, atau menggunakan alat debugging lainnya. Oleh karena itu, backend harus tetap memverifikasi semua data yang diterima.
-  - Integritas Data
+2. Integritas Data
    Backend bertanggung jawab untuk menjaga integritas dan keamanan seluruh sistem, termasuk database. Jika hanya mengandalkan pembersihan di frontend, maka data "kotor" masih bisa masuk ke server jika frontend dilewati atau dimanipulasi.
-  - Trust Boundary
+3. Trust Boundary
    Frontend dijalankan di sisi klien, yang berarti siapa pun bisa mengubah atau melewati kode di sana. Backend adalah satu-satunya tempat di mana kita bisa mempercayai bahwa kode tersebut tidak akan diubah oleh pengguna.
 Dengan melakukan pembersihan di backend, kita memastikan bahwa semua data yang masuk ke dalam aplikasi telah melalui validasi yang benar dan aman. Pembersihan data di frontend hanya digunakan untuk memberikan pengalaman pengguna yang lebih baik (misalnya memberikan umpan balik langsung).
+
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist secara step-by-step**
 1. Pertama-tama memberikan conditional view pada login_user untuk menempelkan pesan error kepada request yang mengirimkan permintaan login, seperti berikut :
@@ -330,7 +335,7 @@ pastikan ketika melakukan penyimpanan mendapat alert dengan nilai XSS!
 ```css
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
 ```
-9. Setelah itu pada fungsi refreshProductEntries tambahkan potongan kode berikut : 
+9. Terakhir pada fungsi refreshProductEntries tambahkan potongan kode berikut : 
 ```css
 const mood = DOMPurify.sanitize(item.fields.mood);
 const feelings = DOMPurify.sanitize(item.fields.feelings);
