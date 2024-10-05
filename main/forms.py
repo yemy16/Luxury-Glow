@@ -26,8 +26,3 @@ class ProductEntryForm(ModelForm):
     def stock_quantity(self):
         stock_quantity = self.cleaned_data["stock_quantity"]
         return strip_tags(stock_quantity)
-
-
-
-
-
