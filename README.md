@@ -257,7 +257,7 @@ Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengat
 
 
 <details>
-<summary>**Tugas 6**</summary>
+<summary>Tugas 6</summary>
 
 **Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!**
 JavaScript memiliki peran penting dalam pengembangan aplikasi web modern karena kemampuannya untuk memberikan interaktivitas yang dinamis pada halaman web. Beberapa manfaat utama penggunaan JavaScript adalah:
