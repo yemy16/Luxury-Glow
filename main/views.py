@@ -117,10 +117,10 @@ def delete_product(request, id):
 @require_POST
 def add_product_entry_ajax(request):
     name = strip_tags(request.POST.get("name"))
-    price = strip_tags(request.POST.get("price"))
+    price = request.POST.get("price")
     description = strip_tags(request.POST.get("description"))
     shade_name = strip_tags(request.POST.get("shade_name"))
-    stock_quantity = strip_tags(request.POST.get("stock_quantity"))
+    stock_quantity = request.POST.get("stock_quantity")
     user = request.user
 
     new_product = Product(
