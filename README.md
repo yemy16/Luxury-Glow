@@ -260,6 +260,7 @@ Grid Layout lebih cocok untuk membuat tata letak kompleks yang melibatkan pengat
 <summary>Tugas 6</summary>
 
 **Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!**
+
 JavaScript memiliki peran penting dalam pengembangan aplikasi web modern karena kemampuannya untuk memberikan interaktivitas yang dinamis pada halaman web. Beberapa manfaat utama penggunaan JavaScript adalah:
 1. Meningkatkan Interaktivitas 
 JavaScript memungkinkan halaman web untuk merespons tindakan pengguna secara real-time tanpa harus memuat ulang seluruh halaman, misalnya menampilkan notifikasi, validasi form, atau memperbarui konten halaman secara dinamis.
@@ -273,10 +274,12 @@ JavaScript dapat menangani logika bisnis sederhana di sisi pengguna, sehingga da
 JavaScript berjalan pada hampir semua peramban modern, sehingga kompatibilitasnya baik untuk berbagai platform web.
 
 **Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?**
-await digunakan untuk menunggu hasil dari pemanggilan fetch() yang berbasis Promise. fetch() secara default bersifat asinkron, yang berarti akan mengembalikan Promise yang belum terisi dengan data (pending) saat pemanggilan pertama kali. Dengan await, kita bisa menunggu hingga permintaan (request) tersebut selesai dan mendapatkan respons dari server sebelum melanjutkan eksekusi baris kode berikutnya.
+
+Await digunakan untuk menunggu hasil dari pemanggilan fetch() yang berbasis Promise. fetch() secara default bersifat asinkron, yang berarti akan mengembalikan Promise yang belum terisi dengan data (pending) saat pemanggilan pertama kali. Dengan await, kita bisa menunggu hingga permintaan (request) tersebut selesai dan mendapatkan respons dari server sebelum melanjutkan eksekusi baris kode berikutnya.
 Jika wait tidak digunakan, kode akan mengeksekusi baris selanjutnya secara langsung tanpa menunggu hasil dari fetch(), sehingga variabel yang dimaksud untuk menyimpan hasil respons akan berisi undefined. Hal ini menyebabkan kemungkinan error ketika mencoba mengakses data respons yang belum tersedia (karena proses belum selesai).
 
 **Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?**
+
 Decorator csrf_exempt digunakan untuk menonaktifkan pemeriksaan Cross-Site Request Forgery (CSRF) pada view tertentu. Django secara default menerapkan pemeriksaan CSRF untuk semua permintaan POST, PUT, dan DELETE guna mencegah serangan CSRF. Namun, pada saat mengimplementasikan AJAX POST request yang tidak mengirimkan token CSRF (misalnya permintaan yang dikirim dari sumber eksternal atau dengan kode JavaScript yang tidak menyertakan token CSRF), permintaan tersebut akan ditolak oleh Django. Dengan menambahkan @csrf_exempt, kita memberitahu Django bahwa view tersebut tidak perlu melakukan pemeriksaan token CSRF pada permintaan tersebut.
 
 **Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?**
@@ -330,11 +333,14 @@ def add_product_entry_ajax(request):
 <img src=x onerror="alert('XSS!');">
 ```
 pastikan ketika melakukan penyimpanan mendapat alert dengan nilai XSS!
+
 7. Menambahkan strip_tags untuk membersihkan data baru dengan menggunakan fungsi strip_tags pada setiap data yang mau diinput, serta menambahkan method clean yang merujuk pada setiap data.
+
 8. Membersihkan data dengan DOMPurify dengan menambahkan potongan kode berikut pada block meta di berkas main.html : 
 ```css
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
 ```
+
 9. Terakhir pada fungsi refreshProductEntries tambahkan potongan kode berikut : 
 ```css
 const mood = DOMPurify.sanitize(item.fields.mood);
