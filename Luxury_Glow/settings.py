@@ -24,11 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j4tp)!-89f1m%j=d=gpzlazay1&0=koofyf23t3$=n@k6lzjw='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-PRODUCTION = os.getenv("PRODUCTION", False)
-DEBUG = not PRODUCTION
+DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "yemima-clara31-luxuryglow.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "yemima-clara31-luxuryglow.pbp.cs.ui.ac.id", "10.0.2.2"]
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
 
 # Application definition
 
@@ -39,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'authentication',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Luxury_Glow.urls'
